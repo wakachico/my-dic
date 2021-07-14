@@ -56,10 +56,22 @@
 | ------- | ---------- | ------------------------------- |
 | type_id | integer    | null: false                     |
 | user    | references | null: false, foreign_key: true  |
-| item    | references | null: false, foreign_key: true  |
 
 ### Association
 
 - belongs_to :user
 - has_many :words
+- has_many :answers
 - belongs_to_active_hash  :type
+
+## answers テーブル
+
+| Column       | Type       | Options                         |
+| ------------ | ---------- | ------------------------------- |
+| score        | integer    | null: false                     |
+| word_answer  | text       | null: false                     |
+| test         | references | null: false, foreign_key: true  |
+
+### Association
+
+- belongs_to :test
