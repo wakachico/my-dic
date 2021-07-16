@@ -2,7 +2,18 @@
   width: 80%;
   height: 100vh;
   padding: 15px;
-  background-color: lightgreen;
+  background-color: rgb(229, 250, 219);
+}
+
+.page-title{
+  font-size: 25px;
+}
+
+.new-word{
+  border: 1px solid black;
+  background-color: white;
+  padding: 15px;
+  height: 15vh;
 }
 
 .new-word-header{
@@ -14,9 +25,6 @@
   align-items: inherit;
   padding: 10px;
   margin-bottom: 30px;
-  border: 1px solid black;
-  background-color: white;
-  height: 10vh;
 }
 
 .important{

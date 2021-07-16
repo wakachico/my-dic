@@ -2,12 +2,15 @@
   display: flex;
 }
 
-.word-index-data{
+.word-index{
   height: 70vh;
   border: 1px solid black;
   background-color: white;
+  margin-top: 30px;
+  padding: 15px;
   overflow: scroll;
 }
+
 .word-contents{
   display: flex;
   padding: 15px 10px;
