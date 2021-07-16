@@ -9,7 +9,7 @@ class Genre < ActiveHash::Base
     { id: 7, name: '歌手' },
     { id: 8, name: 'アニメ' },
     { id: 9, name: 'キャラ' },
-    { id: 10, name: 'カリキュラム' }
+    { id: 10, name: 'カリキュラム' },
     { id: 11, name: 'メモ' }
   ]
 
