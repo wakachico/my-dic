@@ -1,0 +1,67 @@
+.mydic-contents{
+  display: flex;
+}
+
+.word-index{
+  height: 70vh;
+  border: 1px solid black;
+  background-color: white;
+  margin-top: 30px;
+  padding: 15px;
+  overflow: scroll;
+}
+
+.word-contents{
+  display: flex;
+  padding: 15px 10px;
+}
+
+.word-index-header{
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.word-index-header-right{
+  display: flex;
+}
+
+.word-search{
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 30px;
+}
+
+.index-sort{
+  margin-right: 50px;
+}
+
+table{
+  width: 100%;
+}
+
+table td{
+  overflow-wrap : break-word;
+}
+tr{
+  width: 100%;
+  justify-content: space-around;
+}
+
+th{
+  padding: 10px 10px 0 10px;
+  border-bottom: 3px solid black;
+  text-align: center;
+}
+
+.publish-pict{
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+td{
+  padding: 10px 20px 0 10px;
+  border-bottom: 1px solid black;
+  text-align: center;
+}
