@@ -17,18 +17,6 @@
   width: 50%;
 }
 
-.logo-top{
-  display: flex;
-  align-items: center;
-}
-
-.logo-top h1{
-  color: rgb(10, 68, 34);
-  font-size: 45px;
-  font-family: monospace;
-  ca
-}
-
 .account-page .account-page__inner:after {
   clear: both;
   content: "";

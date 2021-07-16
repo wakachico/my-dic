@@ -1,0 +1,72 @@
+.main{
+  width: 80%;
+  height: 100vh;
+  padding: 15px;
+  background-color: lightgreen;
+}
+
+.new-word-header{
+  padding: 5px;
+}
+
+.new-word-form{
+  display: flex;
+  align-items: inherit;
+  padding: 10px;
+  margin-bottom: 30px;
+  border: 1px solid black;
+  background-color: white;
+  height: 10vh;
+}
+
+.important{
+  width: 5%;
+  text-align: center;
+}
+
+.name{
+  margin-left: 8px;
+  text-align: center;
+}
+
+.link-list{
+  display: flex;
+  justify-content: space-around;
+}
+
+.pos{
+  width: 8%;
+  margin-left: 20px;
+  text-align: center;
+}
+
+.meaning{
+  margin-left: 8px;
+  text-align: center;
+}
+
+.genre{
+  width: 10%;
+  margin-left: 20px;
+  text-align: center;
+}
+
+.text{
+  margin-left: 8px;
+  text-align: center;
+}
+
+.publish{
+  width: 5%;
+  margin-left: 20px;
+  text-align: center;
+}
+
+.new-submit{
+  margin-left: 20px;
+  margin-top: 30px;
+}
+
+.new-word-form li{
+  border: 1px solid black;
+}
