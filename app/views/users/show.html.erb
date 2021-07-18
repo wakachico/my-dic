@@ -3,7 +3,7 @@
 <div class="mydic-contents">
   <div class="main">
     <div class="page-title">
-      <h3><%= current_user.nickname%>さんのMydicページ</h3>
+      <h3><%= @user.nickname%>さんのMydicページ</h3>
     </div>
     <%# 英単語追加する部分 %>
     <div class="new-word">
@@ -83,141 +83,155 @@
                 <th width="7%">  </th>
               </tr>
             </thead>
-            <%# 一覧ダミーデータ %>
-            <tbody>
-              <tr>
-                <td>☆</td>
-                <td>lizard</td>
-                <td>名詞</td>
-                <td>トカゲ</td>
-                <td>アニメ</td>
-                <td>ポケモン：リザードの由来</td>
-                <td>○</td>
-                <td>3.5万</td>
-                <td>3.5万</td>
-                <td><input type="submit" value="削除" class="send"></td>
-              </tr>
-              <tr>
-                <td>☆</td>
-                <td>caterpillar</td>
-                <td>名詞</td>
-                <td>イモムシ</td>
-                <td>アニメ</td>
-                <td>ポケモン：キャタピーの由来</td>
-                <td>○</td>
-                <td>30</td>
-                <td>50</td>
-                <td><input type="submit" value="削除" class="send"></td>
-              </tr>
-              <tr>
-                <td>★</td>
-                <td>pigeon</td>
-                <td>名詞</td>
-                <td>鳩</td>
-                <td>アニメ</td>
-                <td>ポケモン：ピジョンの由来</td>
-                <td>○</td>
-                <td>5</td>
-                <td>32</td>
-                <td><input type="submit" value="削除" class="send"></td>
-              </tr>
-              <tr>
-                <td>☆</td>
-                <td>bee</td>
-                <td>名詞</td>
-                <td>蜂</td>
-                <td>アニメ</td>
-                <td>ポケモン：ビードルの由来（bee＋needle(針)）</td>
-                <td>○</td>
-                <td>1032</td>
-                <td>405</td>
-                <td><input type="submit" value="削除" class="send"></td>
-              </tr>
-              <tr>
-                <td>☆</td>
-                <td>boa</td>
-                <td>名詞</td>
-                <td>南米の大蛇の一種</td>
-                <td>アニメ</td>
-                <td>ポケモン：アーボの由来（boa（ボア）の逆読み）</td>
-                <td>×</td>
-                <td>10</td>
-                <td>20</td>
-                <td><input type="submit" value="削除" class="send"></td>
-              </tr>
-              <tr>
-                <td>☆</td>
-                <td>pixie</td>
-                <td>名詞</td>
-                <td>妖精</td>
-                <td>アニメ</td>
-                <td>ポケモン：ピクシーの由来</td>
-                <td>×</td>
-                <td>0</td>
-                <td>0</td>
-                <td><input type="submit" value="削除" class="send"></td>
-              </tr>
-              <tr>
-                <td>★</td>
-                <td>parasite</td>
-                <td>名詞</td>
-                <td>寄生虫</td>
-                <td>アニメ</td>
-                <td>ポケモン：パラセクトの由来（parasite＋insect(虫)）</td>
-                <td>○</td>
-                <td>40</td>
-                <td>90</td>
-                <td><input type="submit" value="削除" class="send"></td>
-              </tr>
-              <tr>
-                <td>★</td>
-                <td>parasite</td>
-                <td>名詞</td>
-                <td>寄生虫</td>
-                <td>アニメ</td>
-                <td>ポケモン：パラセクトの由来（parasite＋insect(虫)）</td>
-                <td>○</td>
-                <td>40</td>
-                <td>90</td>
-                <td><input type="submit" value="削除" class="send"></td>
-              </tr>
-              <tr>
-                <td>★</td>
-                <td>parasite</td>
-                <td>名詞</td>
-                <td>寄生虫</td>
-                <td>アニメ</td>
-                <td>ポケモン：パラセクトの由来（parasite＋insect(虫)）</td>
-                <td>○</td>
-                <td>40</td>
-                <td>90</td>
-                <td><input type="submit" value="削除" class="send"></td>
-              </tr>
-              <tr>
-                <td>★</td>
-                <td>parasite</td>
-                <td>名詞</td>
-                <td>寄生虫</td>
-                <td>アニメ</td>
-                <td>ポケモン：パラセクトの由来（parasite＋insect(虫)）</td>
-                <td>○</td>
-                <td>40</td>
-                <td>90</td>
-                <td><input type="submit" value="削除" class="send"></td>
-              </tr>
-              <tr>
-                <td>★</td>
-                <td>parasite</td>
-                <td>名詞</td>
-                <td>寄生虫</td>
-                <td>アニメ</td>
-                <td>ポケモン：パラセクトの由来（parasite＋insect(虫)）</td>
-                <td>○</td>
-                <td>40</td>
-                <td>90</td>
-                <td><input type="submit" value="削除" class="send"></td>
-              </tr>
-            </tbody>
+              <%# 一覧ダミーデータ %>
+            <% @words.each do |word| %>
+              <tbody>
+                <tr>
+                  <td>
+                    <% if word.important%>
+                      ★
+                    <% else %>
+                      ☆
+                    <% end %>
+                  </td>
+                  <td><%= word.name %></td>
+                  <td><%= word.pos.name %></td>
+                  <td><%= word.meaning %></td>
+                  <td><%= word.genre.name %></td>
+                  <td><%= word.text %></td>
+                  <td>
+                    <% if word.publish %>
+                      ○
+                    <% else %>
+                      ×
+                    <% end %>
+                  </td>
+                  <td>3.5万</td>
+                  <td>3.5万</td>
+                  <td><input type="submit" value="削除" class="send"></td>
+                </tr>
+                <%# <tr>
+                  <td>☆</td>
+                  <td>caterpillar</td>
+                  <td>名詞</td>
+                  <td>イモムシ</td>
+                  <td>アニメ</td>
+                  <td>ポケモン：キャタピーの由来</td>
+                  <td>○</td>
+                  <td>30</td>
+                  <td>50</td>
+                  <td><input type="submit" value="削除" class="send"></td>
+                </tr>
+                <tr>
+                  <td>★</td>
+                  <td>pigeon</td>
+                  <td>名詞</td>
+                  <td>鳩</td>
+                  <td>アニメ</td>
+                  <td>ポケモン：ピジョンの由来</td>
+                  <td>○</td>
+                  <td>5</td>
+                  <td>32</td>
+                  <td><input type="submit" value="削除" class="send"></td>
+                </tr>
+                <tr>
+                  <td>☆</td>
+                  <td>bee</td>
+                  <td>名詞</td>
+                  <td>蜂</td>
+                  <td>アニメ</td>
+                  <td>ポケモン：ビードルの由来（bee＋needle(針)）</td>
+                  <td>○</td>
+                  <td>1032</td>
+                  <td>405</td>
+                  <td><input type="submit" value="削除" class="send"></td>
+                </tr>
+                <tr>
+                  <td>☆</td>
+                  <td>boa</td>
+                  <td>名詞</td>
+                  <td>南米の大蛇の一種</td>
+                  <td>アニメ</td>
+                  <td>ポケモン：アーボの由来（boa（ボア）の逆読み）</td>
+                  <td>×</td>
+                  <td>10</td>
+                  <td>20</td>
+                  <td><input type="submit" value="削除" class="send"></td>
+                </tr>
+                <tr>
+                  <td>☆</td>
+                  <td>pixie</td>
+                  <td>名詞</td>
+                  <td>妖精</td>
+                  <td>アニメ</td>
+                  <td>ポケモン：ピクシーの由来</td>
+                  <td>×</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td><input type="submit" value="削除" class="send"></td>
+                </tr>
+                <tr>
+                  <td>★</td>
+                  <td>parasite</td>
+                  <td>名詞</td>
+                  <td>寄生虫</td>
+                  <td>アニメ</td>
+                  <td>ポケモン：パラセクトの由来（parasite＋insect(虫)）</td>
+                  <td>○</td>
+                  <td>40</td>
+                  <td>90</td>
+                  <td><input type="submit" value="削除" class="send"></td>
+                </tr>
+                <tr>
+                  <td>★</td>
+                  <td>parasite</td>
+                  <td>名詞</td>
+                  <td>寄生虫</td>
+                  <td>アニメ</td>
+                  <td>ポケモン：パラセクトの由来（parasite＋insect(虫)）</td>
+                  <td>○</td>
+                  <td>40</td>
+                  <td>90</td>
+                  <td><input type="submit" value="削除" class="send"></td>
+                </tr>
+                <tr>
+                  <td>★</td>
+                  <td>parasite</td>
+                  <td>名詞</td>
+                  <td>寄生虫</td>
+                  <td>アニメ</td>
+                  <td>ポケモン：パラセクトの由来（parasite＋insect(虫)）</td>
+                  <td>○</td>
+                  <td>40</td>
+                  <td>90</td>
+                  <td><input type="submit" value="削除" class="send"></td>
+                </tr>
+                <tr>
+                  <td>★</td>
+                  <td>parasite</td>
+                  <td>名詞</td>
+                  <td>寄生虫</td>
+                  <td>アニメ</td>
+                  <td>ポケモン：パラセクトの由来（parasite＋insect(虫)）</td>
+                  <td>○</td>
+                  <td>40</td>
+                  <td>90</td>
+                  <td><input type="submit" value="削除" class="send"></td>
+                </tr>
+                <tr>
+                  <td>★</td>
+                  <td>parasite</td>
+                  <td>名詞</td>
+                  <td>寄生虫</td>
+                  <td>アニメ</td>
+                  <td>ポケモン：パラセクトの由来（parasite＋insect(虫)）</td>
+                  <td>○</td>
+                  <td>40</td>
+                  <td>90</td>
+                  <td><input type="submit" value="削除" class="send"></td>
+                </tr> %>
+              </tbody>
+            <% end %>
           </table>
         </div>
       </div>
