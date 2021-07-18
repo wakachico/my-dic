@@ -13,7 +13,7 @@
   border: 1px solid black;
   background-color: white;
   padding: 15px;
-  height: 15vh;
+  height: 150px;
 }
 
 .new-word-header{
@@ -32,10 +32,36 @@
   text-align: center;
 }
 
+#important_check_box{
+  -webkit-appearance:none;
+  line-height:28px;
+  width:30px;
+  height:30px;
+  border:solid 1px #ddd;
+  background:-webkit-gradient(linear, left top, left bottom, from(#fff), to(#ccc));
+  -webkit-box-shadow:1px 1px 1px #888;
+  -webkit-border-radius:0.5em;
+  text-align:center;
+  color:#888;
+  font-weight:bold;
+}
+#important_check_box:before {
+  content:"★";
+  font-size:20px;
+} 
+#important_check_box:checked {
+  color:black;
+} 
+
 .name{
   margin-left: 8px;
   text-align: center;
 }
+
+.name-form,.meaning-form,.text-form{
+  padding: 5px;
+}
+
 
 .link-list{
   display: flex;
@@ -56,6 +82,7 @@
 .genre{
   width: 10%;
   margin-left: 20px;
+  margin-right: 13px;
   text-align: center;
 }
 
@@ -68,6 +95,12 @@
   width: 5%;
   margin-left: 20px;
   text-align: center;
+}
+
+#publish_check_box{
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
 }
 
 .new-submit{

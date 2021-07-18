@@ -24,7 +24,7 @@
 | pos_id              | integer       | null: false                     |
 | meaning             | text          | null: false                     |
 | genre_id            | integer       | null: false                     |
-| text                | text          | null: false                     |
+| text                | text          |                                 |
 | publish             | boolean       | null: false, default: true      |
 | user                | references    | null: false, foreign_key: true  |
 | test                | references    | null: false, foreign_key: true  |

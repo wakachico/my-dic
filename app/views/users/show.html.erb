@@ -10,14 +10,14 @@
       <div class="new-word-header">
         <h3> - My dicに英単語追加 - </h3>
       </div>
-      <form class="new-word-form">
+      <%= form_with model: @word, url: words_path, method: :post, class: "new-word-form", local: true do |f| %>
         <div class="important">
           <p>重要</p>
-          ☆
+          <%= f.check_box :important, id: "important_check_box", checked: true, unchecked: false %>
         </div>
         <div class="name">
           <p>英単語</p>
-          <input type="text" placeholder="英単語" class="name-form">
+          <%= f.text_area :name, class:"name-form", id:"word-name", placeholder:"英単語を入力" %>
           <div class="link-list">
             <%= link_to "Weblio", "#", class: "weblio-link"%>
             <%= link_to "公開ワード", "#", class: "publish-link"%>
@@ -25,34 +25,28 @@
         </div>
         <div class="pos">
           <p>品詞</p>
-          <ul class="hidden">
-            <li>形容動詞▼</li>
-          </ul>
+          <%= f.collection_select(:pos_id, Pos.all, :id, :name, {}, {class:"select-box", id:"word-pos"}) %>
         </div>
         <div class="meaning">
           <p>和訳</p>
-          <textarea name="text" placeholder="和訳"  class="meaning-form" raw=3></textarea>
+          <%= f.text_area :meaning, class:"meaning-form", id:"word-meaning", placeholder:"和訳を入力", rows: "3" %>
         </div>
         <div class="genre">
           <p>ジャンル</p>
-          <ul class="hidden">
-            <li>アニメ▼</li>
-          </ul>
+          <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select-box", id:"word-textgenre"}) %>
         </div>
         <div class="text">
           <p>テキスト</p>
-          <textarea name="text" placeholder="テキスト"  class="text-form" raw=3></textarea>
+          <%= f.text_area :text, class:"text-form", id:"word-text", placeholder:"テキストを入力（任意）", rows: "3" %>
         </div>
         <div class="publish">
           <p><%= image_tag "publish_logo.png", class:"publish-pict" %></p>
-          <ul class="hidden">
-            <li>○▼</li>
-          </ul>
+          <%= f.check_box :publish, id: "publish_check_box", checked: true, unchecked: false %>
         </div>
         <div class="new-submit">
-          <input type="submit" value="追加" class="send">
+          <%= f.submit "追加" ,class:"add-btn" %>
         </div>
-      </form>
+      <% end %>
     </div>
 
     <%# 英単語一覧表示する部分 %>
