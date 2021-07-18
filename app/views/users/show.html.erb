@@ -108,7 +108,7 @@
                   </td>
                   <td>3.5万</td>
                   <td>3.5万</td>
-                  <td><input type="submit" value="削除" class="send"></td>
+                  <td><%= link_to image_tag("bin.jpeg", class:"bin-btn"), word_path(word.id), method: :delete %></td>
                 </tr>
                 <%# <tr>
                   <td>☆</td>

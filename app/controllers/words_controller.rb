@@ -8,6 +8,12 @@ class WordsController < ApplicationController
     end
   end
 
+  def destroy
+    @word = Word.find(params[:id])
+    @word.destroy
+    redirect_to user_path(current_user.id)
+  end
+
   private
   def word_params
     params.require(:word).permit(:important, :name, :pos_id, :meaning, :genre_id, :text, :publish).merge(user_id: current_user.id)
