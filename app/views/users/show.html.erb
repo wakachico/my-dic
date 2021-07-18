@@ -13,7 +13,7 @@
       <%= form_with model: @word, url: words_path, method: :post, class: "new-word-form", local: true do |f| %>
         <div class="important">
           <p>重要</p>
-          ☆
+          <%= f.check_box :important, id: "important_check_box", checked: true, unchecked: false %>
         </div>
         <div class="name">
           <p>英単語</p>
@@ -41,9 +41,7 @@
         </div>
         <div class="publish">
           <p><%= image_tag "publish_logo.png", class:"publish-pict" %></p>
-          <ul class="hidden">
-            <li>○▼</li>
-          </ul>
+          <%= f.check_box :publish, id: "publish_check_box", checked: true, unchecked: false %>
         </div>
         <div class="new-submit">
           <%= f.submit "追加" ,class:"add-btn" %>

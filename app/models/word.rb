@@ -6,6 +6,6 @@ class Word < ApplicationRecord
   belongs_to :genre
 
   with_options presence: true do
-    validates :name, :important, :pos_id, :meaning, :genre_id, :publish
+    validates :name, :pos_id, :meaning, :genre_id
   end
 end
