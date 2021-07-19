@@ -36,6 +36,11 @@
   margin-right: 50px;
 }
 
+.supplement-text{
+  display: block;
+  text-align: center;
+}
+
 table{
   width: 100%;
 }

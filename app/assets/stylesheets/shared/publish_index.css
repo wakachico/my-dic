@@ -3,3 +3,12 @@
   padding: 15px;
   background-color: rgb(229, 250, 219);
 }
+
+.publish-word-index{
+  height: 85%;
+  border: 1px solid black;
+  background-color: white;
+  margin-top: 30px;
+  padding: 15px;
+  overflow: scroll;
+}
