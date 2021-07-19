@@ -94,11 +94,20 @@
                       ☆
                     <% end %>
                   </td>
-                  <td><%= word.name %></td>
-                  <td><%= word.pos.name %></td>
-                  <td><%= word.meaning %></td>
+                  <td><%= best_in_place word, :name, :as => :input %></td>
+                  <td>
+                    <div id="pos">
+                      <%= word.pos.name %>
+                    </div>
+                    <select class="show-lists hidden" id="pull-down">
+                      <%  Pos.all.each do |pos| %>
+                        <option class="pull-down-list" > <%= link_to pos.name, word_path(word.id), method: :patch %> </option>
+                      <% end %>
+                    </select>
+                  </td>
+                  <td><%= best_in_place word, :meaning, :as => :input %></td>
                   <td><%= word.genre.name %></td>
-                  <td><%= word.text %></td>
+                  <td><%= best_in_place word, :text, :as => :input %></td>
                   <td>
                     <% if word.publish %>
                       ○
