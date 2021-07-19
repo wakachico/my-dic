@@ -91,38 +91,24 @@
                 <tr>
                   <% if user_signed_in? && @user.id == current_user.id%>
                     <td>
-                      <% if word.important%>
-                        ★
-                      <% else %>
-                        ☆
-                      <% end %>
+                      <%= best_in_place word, :important, :as => :select, collection: [[true, '★'], [false, '☆']] %>
                     </td>
                     <td>
-                        <%= best_in_place word, :name, :as => :input %>
+                      <%= best_in_place word, :name, :as => :input %>
                     </td>
                     <td>
-                      <div id="pos">
-                        <%= word.pos.name %>
-                      </div>
-                      <select class="show-lists hidden" id="pull-down">
-                        <%  Pos.all.each do |pos| %>
-                          <option class="pull-down-list" > <%= link_to pos.name, word_path(word.id), method: :patch %> </option>
-                        <% end %>
-                      </select>
+                      <%= best_in_place word, :pos_id, :as => :select, collection: Pos.all.map{|pos| [pos.id, pos.name]} %>
                     </td>
                     <td>
                       <%= best_in_place word, :meaning, :as => :input %>
                     </td>
-                    <td><%= word.genre.name %></td>
+                    <td>
+                      <%= best_in_place word, :genre_id, :as => :select, collection: Genre.all.map{|genre| [genre.id, genre.name]} %>
                     <td>
                       <%= best_in_place word, :text, :as => :input %>
                     </td>
                     <td>
-                      <% if word.publish %>
-                        ○
-                      <% else %>
-                        ×
-                      <% end %>
+                      <%= best_in_place word, :publish, :as => :select, collection: [[true, '○'], [false, '×']] %>
                     </td>
                     <td>3.5万</td>
                     <td>3.5万</td>
