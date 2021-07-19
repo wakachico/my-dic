@@ -1,2 +1,57 @@
-一覧表示する予定
-<%=link_to 'Mydicページ', user_path(current_user.id), class:"back-btn" %>
+<%= render "devise/shared/header" %>
+
+<div class="publish-main">
+  <div class="word-index">
+    <div class="word-index-header">
+      <h3> - 公開ワード  一覧 - </h3>
+      <div class="word-index-header-right">
+        <div class="word-search">
+          <input type="text" placeholder="検索ワード入力" class="keyword-form">
+          <div class="condition">を含む▼</div>
+          <div class="category">全て▼</div>
+          <div>を</div>
+          <input type="submit" value="検索" class="send">
+        </div>
+        <div class="index-sort">並び替え▼</div>
+      </div>
+    </div>
+    <div class="word-index-data">
+      <div class="word-contents">
+        <table>
+          <thead>
+            <tr>
+              <th width="13%">投稿者</th>
+              <th width="12%">英単語</th>
+              <th width="8%">品詞</th>
+              <th width="15%">和訳</th>
+              <th width="10%">ジャンル</th>
+              <th width="20%">テキスト</th>
+              <th width="8%">グー</th>
+              <th width="8%">採用</th>
+              <th width="15%">  </th>
+            </tr>
+          </thead>
+          <% @words.each do |word| %>
+            <tbody>
+              <tr>
+                <td><%= link_to word.user.nickname, user_path(word.user_id) %></td>
+                <td><%= word.name %></td>
+                <td><%= word.pos.name %></td>
+                <td><%= word.meaning %></td>
+                <td><%= word.genre.name %></td>
+                <td><%= word.text %></td>
+                <td>3.5万</td>
+                <td>3.5万</td>
+                <td>
+                  <% if current_user.id != word.user_id %>
+                    <%= link_to "採用！", "#" %>
+                  <% end %>
+                </td>
+              </tr>
+            </tbody>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

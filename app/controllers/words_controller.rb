@@ -1,4 +1,10 @@
 class WordsController < ApplicationController
+  before_action :authenticate_user!, only: [:index, :new, :create, :edit, :update, :destroy]
+
+  def index
+    @words = Word.where(publish: true)
+  end
+
   def create
     @word = Word.new(word_params)
     if  @word.save

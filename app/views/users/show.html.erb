@@ -6,49 +6,50 @@
       <h3><%= @user.nickname%>さんのMydicページ</h3>
     </div>
     <%# 英単語追加する部分 %>
-    <div class="new-word">
-      <div class="new-word-header">
-        <h3> - My dicに英単語追加 - </h3>
-      </div>
-      <%= form_with model: @word, url: words_path, method: :post, class: "new-word-form", local: true do |f| %>
-        <div class="important">
-          <p>重要</p>
-          <%= f.check_box :important, id: "important_check_box", checked: true, unchecked: false %>
+    <% if user_signed_in? && @user.id == current_user.id%>
+      <div class="new-word">
+        <div class="new-word-header">
+          <h3> - My dicに英単語追加 - </h3>
         </div>
-        <div class="name">
-          <p>英単語</p>
-          <%= f.text_area :name, class:"name-form", id:"word-name", placeholder:"英単語を入力" %>
-          <div class="link-list">
-            <%= link_to "Weblio", "#", class: "weblio-link"%>
-            <%= link_to "公開ワード", "#", class: "publish-link"%>
+        <%= form_with model: @word, url: words_path, method: :post, class: "new-word-form", local: true do |f| %>
+          <div class="important">
+            <p>重要</p>
+            <%= f.check_box :important, id: "important_check_box", checked: true, unchecked: false %>
           </div>
-        </div>
-        <div class="pos">
-          <p>品詞</p>
-          <%= f.collection_select(:pos_id, Pos.all, :id, :name, {}, {class:"select-box", id:"word-pos"}) %>
-        </div>
-        <div class="meaning">
-          <p>和訳</p>
-          <%= f.text_area :meaning, class:"meaning-form", id:"word-meaning", placeholder:"和訳を入力", rows: "3" %>
-        </div>
-        <div class="genre">
-          <p>ジャンル</p>
-          <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select-box", id:"word-textgenre"}) %>
-        </div>
-        <div class="text">
-          <p>テキスト</p>
-          <%= f.text_area :text, class:"text-form", id:"word-text", placeholder:"テキストを入力（任意）", rows: "3" %>
-        </div>
-        <div class="publish">
-          <p><%= image_tag "publish_logo.png", class:"publish-pict" %></p>
-          <%= f.check_box :publish, id: "publish_check_box", checked: true, unchecked: false %>
-        </div>
-        <div class="new-submit">
-          <%= f.submit "追加" ,class:"add-btn" %>
-        </div>
-      <% end %>
-    </div>
-
+          <div class="name">
+            <p>英単語</p>
+            <%= f.text_area :name, class:"name-form", id:"word-name", placeholder:"英単語を入力" %>
+            <div class="link-list">
+              <%= link_to "Weblio", "#", class: "weblio-link"%>
+              <%= link_to "公開ワード", "#", class: "publish-link"%>
+            </div>
+          </div>
+          <div class="pos">
+            <p>品詞</p>
+            <%= f.collection_select(:pos_id, Pos.all, :id, :name, {}, {class:"select-box", id:"word-pos"}) %>
+          </div>
+          <div class="meaning">
+            <p>和訳</p>
+            <%= f.text_area :meaning, class:"meaning-form", id:"word-meaning", placeholder:"和訳を入力", rows: "3" %>
+          </div>
+          <div class="genre">
+            <p>ジャンル</p>
+            <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select-box", id:"word-textgenre"}) %>
+          </div>
+          <div class="text">
+            <p>テキスト</p>
+            <%= f.text_area :text, class:"text-form", id:"word-text", placeholder:"テキストを入力（任意）", rows: "3" %>
+          </div>
+          <div class="publish">
+            <p><%= image_tag "publish_logo.png", class:"publish-pict" %></p>
+            <%= f.check_box :publish, id: "publish_check_box", checked: true, unchecked: false %>
+          </div>
+          <div class="new-submit">
+            <%= f.submit "追加" ,class:"add-btn" %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
     <%# 英単語一覧表示する部分 %>
     <div class="word-index">
       <div class="word-index-header">
@@ -67,6 +68,7 @@
       <div class="word-index-data">
         <div class="word-contents">
           <table>
+            <%# ワード一覧テーブルヘッダー %>
             <thead>
               <tr>
                 <th width="5%">  </th>
@@ -74,51 +76,92 @@
                 <th width="8%">品詞</th>
                 <th width="15%">和訳</th>
                 <th width="10%">ジャンル</th>
-                <th width="25%">テキスト</th>
+                <th width="23%">テキスト</th>
                 <th width="5%"> 
                   <%= image_tag "publish_logo.png", class:"publish-pict" %>
                 </th>
                 <th width="8%">グー</th>
                 <th width="8%">採用</th>
-                <th width="7%">  </th>
+                <th width="6%">  </th>
               </tr>
             </thead>
-              <%# 一覧ダミーデータ %>
+            <%# ワード一覧表示 %>
             <% @words.each do |word| %>
               <tbody>
                 <tr>
-                  <td>
-                    <% if word.important%>
-                      ★
-                    <% else %>
-                      ☆
-                    <% end %>
-                  </td>
-                  <td><%= best_in_place word, :name, :as => :input %></td>
-                  <td>
-                    <div id="pos">
-                      <%= word.pos.name %>
-                    </div>
-                    <select class="show-lists hidden" id="pull-down">
-                      <%  Pos.all.each do |pos| %>
-                        <option class="pull-down-list" > <%= link_to pos.name, word_path(word.id), method: :patch %> </option>
+                  <% if user_signed_in? && @user.id == current_user.id%>
+                    <td>
+                      <% if word.important%>
+                        ★
+                      <% else %>
+                        ☆
                       <% end %>
-                    </select>
-                  </td>
-                  <td><%= best_in_place word, :meaning, :as => :input %></td>
-                  <td><%= word.genre.name %></td>
-                  <td><%= best_in_place word, :text, :as => :input %></td>
-                  <td>
-                    <% if word.publish %>
-                      ○
-                    <% else %>
-                      ×
-                    <% end %>
-                  </td>
-                  <td>3.5万</td>
-                  <td>3.5万</td>
-                  <td><%= link_to image_tag("bin.jpeg", class:"bin-btn"), word_path(word.id), method: :delete %></td>
+                    </td>
+                    <td>
+                        <%= best_in_place word, :name, :as => :input %>
+                    </td>
+                    <td>
+                      <div id="pos">
+                        <%= word.pos.name %>
+                      </div>
+                      <select class="show-lists hidden" id="pull-down">
+                        <%  Pos.all.each do |pos| %>
+                          <option class="pull-down-list" > <%= link_to pos.name, word_path(word.id), method: :patch %> </option>
+                        <% end %>
+                      </select>
+                    </td>
+                    <td>
+                      <%= best_in_place word, :meaning, :as => :input %>
+                    </td>
+                    <td><%= word.genre.name %></td>
+                    <td>
+                      <%= best_in_place word, :text, :as => :input %>
+                    </td>
+                    <td>
+                      <% if word.publish %>
+                        ○
+                      <% else %>
+                        ×
+                      <% end %>
+                    </td>
+                    <td>3.5万</td>
+                    <td>3.5万</td>
+                    <td><%= link_to image_tag("bin.jpeg", class:"bin-btn"), word_path(word.id), method: :delete %></td>
+                  <% else %>
+                    <td>
+                      <% if word.important%>
+                        ★
+                      <% else %>
+                        ☆
+                      <% end %>
+                    </td>
+                    <td><%= word.name%></td>
+                    <td>
+                      <div id="pos">
+                        <%= word.pos.name %>
+                      </div>
+                      <select class="show-lists hidden" id="pull-down">
+                        <%  Pos.all.each do |pos| %>
+                          <option class="pull-down-list" > <%= link_to pos.name, word_path(word.id), method: :patch %> </option>
+                        <% end %>
+                      </select>
+                    </td>
+                    <td><%= word.meaning %></td>
+                    <td><%= word.genre.name %></td>
+                    <td><%= word.text %></td>
+                    <td>
+                      <% if word.publish %>
+                        ○
+                      <% else %>
+                        ×
+                      <% end %>
+                    </td>
+                    <td>3.5万</td>
+                    <td>3.5万</td>
+                    <td class="recruitment-btn"><%= link_to "採用！", "#" %></td>
+                  <% end %>
                 </tr>
+                <%# 一覧ダミーデータ %>
                 <%# <tr>
                   <td>☆</td>
                   <td>caterpillar</td>
@@ -255,7 +298,7 @@
           - ユーザー検索 -
         </div>
         <div class="try-test">
-            <%= link_to "公開ワードを見に行く", "#", class: "test-link"%>
+            <%= link_to "公開ワードを見に行く", root_path, class: "test-link"%>
         </div>
         <div class="list">過去にグーしたユーザー▼</div>
         <div class="list">過去に採用したユーザー▼</div>
