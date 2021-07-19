@@ -6,6 +6,7 @@
         <h2>新規ユーザー登録</h2>
         <h5>「My dic」アプリを使用するには新規アカウントの作成が必要です。</h5>
         <h5> 　必要な項目を入力しサクッとアカウント登録して始めよう！</h5>
+        <%= link_to "ログイン", new_session_path(resource_name) %><br />
       </div>
       <div class='account-page__inner--right user-form'>
         <%= form_with model: resource, as: resource_name, url: registration_path(resource_name), local: true do |f|%>
