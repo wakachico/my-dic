@@ -2,13 +2,13 @@
   <div class='nav'>
     <ul class='lists-left'>
       <div class="logo-top">
-        <%= link_to image_tag("logo.png", class:"logo"), root_path %>
+        <%= link_to image_tag("logo.png", class:"logo"), "#" %>
         <h1>My dic<h1>
       </div>
     </ul>
     <ul class='lists-right'>
       <% if user_signed_in? %>
-        <li><%= link_to "ログイン中のユーザー：#{current_user.nickname}", "#", class: "user-nickname" %> </li> 
+        <li><%= link_to "ログイン中のユーザー：#{current_user.nickname}", user_path(current_user.id), class: "user-nickname" %> </li> 
         <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %> </li>
       <% else %>
         <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
