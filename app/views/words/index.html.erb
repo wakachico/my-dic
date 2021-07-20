@@ -6,11 +6,13 @@
       <h3> - 公開ワード  一覧 - </h3>
       <div class="word-index-header-right">
         <div class="word-search">
-          <input type="text" placeholder="検索ワード入力" class="keyword-form">
-          <div class="condition">を含む▼</div>
-          <div class="category">全て▼</div>
-          <div>を</div>
-          <input type="submit" value="検索" class="send">
+          <%= form_with(url: search_index_words_path, local: true, method: :get, class: "word-search") do |form| %>
+              <%= form.text_field :keyword, placeholder: "検索ワード入力", class: "search-input" %>
+              <%= form.select :condition, [['を含む', 1], ['から始まる', 2]] %>
+              <%= form.select :category, [['全て', 1],['英単語', 2], ['和訳', 3], ['テキスト', 4]] %>
+              <div>を</div>
+              <%= form.submit "検索", class: "search-btn" %>
+            <% end %>
         </div>
         <div class="index-sort">並び替え▼</div>
       </div>
