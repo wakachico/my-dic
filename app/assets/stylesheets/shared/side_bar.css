@@ -1,7 +1,7 @@
 .side-bar{
   background-color: rgb(229, 250, 219);
-  padding: 33px 15px 15px 15px;
-  width: 20%;
+  padding: 33px 15px 15px 0;
+  width: 17%;
 }
 
 .side-bar-contents{
@@ -25,7 +25,7 @@
 .try-test{
   padding: 15px 0;
   text-align: center;
-  font-size: 20px;
+  font-size: 15px;
 }
 
 .test-link{
@@ -41,13 +41,14 @@
 }
 
 .calendar th{
-  width: 12%;
+  padding: 0;
+  width: 10px;
   height: 20px;
   border: 1px solid black;
 }
 
 .calendar td{
-  width: 12%;
+  width: 10px;
   height: 20px;
   border: 1px solid black;
 }

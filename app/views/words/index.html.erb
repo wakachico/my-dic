@@ -17,39 +17,39 @@
     </div>
     <div class="word-index-data">
       <div class="word-contents">
-        <table>
-          <thead>
+        <table class="publish_index_table">
+          <thead class="table_head">
             <tr>
-              <th width="13%">投稿者</th>
-              <th width="12%">英単語</th>
-              <th width="8%">品詞</th>
-              <th width="15%">和訳</th>
-              <th width="10%">ジャンル</th>
-              <th width="20%">テキスト</th>
-              <th width="8%">グー</th>
-              <th width="8%">採用</th>
-              <th width="15%">  </th>
+              <th class="user_nickname_space">投稿者</th>
+              <th class="publish_name_space">英単語</th>
+              <th class="publish_pos_space">品詞</th>
+              <th class="publish_meaning_space">和訳</th>
+              <th class="publish_genre_space">ジャンル</th>
+              <th class="publish_text_space">テキスト</th>
+              <th class="publish_good_space">グー</th>
+              <th class="publish_recruitment_space">採用</th>
+              <th class="publish_btn_space">  </th>
             </tr>
           </thead>
-          <% @words.each do |word| %>
-            <tbody>
+          <tbody class="publish_table_scroll">
+            <% @words.each do |word| %>
               <tr>
-                <td><%= link_to word.user.nickname, user_path(word.user_id) %></td>
-                <td><%= word.name %></td>
-                <td><%= word.pos.name %></td>
-                <td><%= word.meaning %></td>
-                <td><%= word.genre.name %></td>
-                <td><%= word.text %></td>
-                <td>3.5万</td>
-                <td>3.5万</td>
-                <td>
+                <td class="user_nickname_space"><%= link_to word.user.nickname, user_path(word.user_id) %></td>
+                <td class="publish_name_space"><%= word.name %></td>
+                <td class="publish_pos_space"><%= word.pos.name %></td>
+                <td class="publish_meaning_space"><%= word.meaning %></td>
+                <td class="publish_genre_space"><%= word.genre.name %></td>
+                <td class="publish_text_space"><%= word.text %></td>
+                <td class="publish_good_space">3.5万</td>
+                <td class="publish_recruitment_space">3.5万</td>
+                <td class="publish_btn_space">
                   <% if current_user.id != word.user_id %>
                     <%= link_to "採用！", "#" %>
                   <% end %>
                 </td>
               </tr>
-            </tbody>
-          <% end %>
+            <% end %>
+          </tbody>
         </table>
       </div>
     </div>

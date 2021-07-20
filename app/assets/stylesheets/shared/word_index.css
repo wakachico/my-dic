@@ -8,7 +8,6 @@
   background-color: white;
   margin-top: 30px;
   padding: 15px;
-  overflow: scroll;
 }
 
 .word-contents{
@@ -41,13 +40,62 @@
   text-align: center;
 }
 
-table{
-  width: 100%;
+table.index_table{
+  width: 1110px;
+  table-layout:fixed;
+  display: table;
 }
 
-table td{
-  overflow-wrap : break-word;
+thead.table_head,tbody.table_scroll{
+  display: block;
 }
+
+.important_space{
+  width: 40px;
+}
+
+.name_space{
+  width: 100px;
+}
+
+.pos_space{
+  width: 80px;
+}
+
+.meaning_space{
+  width: 150px;
+}
+
+.genre_space{
+  width: 100px;
+}
+
+.text_space{
+  width: 200px;
+}
+
+.publish_space{
+  width: 40px;
+}
+
+.good_space{
+  width: 70px;
+}
+
+.btn_space{
+  width: 60px;
+}
+
+.recruitment_space{
+  width: 70px;
+}
+
+
+tbody.table_scroll{
+  height: 420px;
+  overflow-y: scroll;
+}
+
 tr{
   width: 100%;
   justify-content: space-around;
@@ -62,11 +110,10 @@ th{
 .publish-pict{
   width: 20px;
   height: 20px;
-  margin-right: 10px;
 }
 
 td{
-  padding: 10px 20px 0 10px;
+  padding: 10px 10px 0 10px;
   border-bottom: 1px solid black;
   text-align: center;
 }

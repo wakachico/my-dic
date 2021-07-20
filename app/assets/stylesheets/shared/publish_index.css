@@ -10,5 +10,55 @@
   background-color: white;
   margin-top: 30px;
   padding: 15px;
-  overflow: scroll;
+}
+
+table.publish_index_table{
+  width: 1500px;
+  table-layout:fixed;
+  display: table;
+}
+
+thead.table_head,tbody.publish_table_scroll{
+  display: block;
+}
+
+.user_nickname_space{
+  width: 150px;
+}
+
+.publish_name_space{
+  width: 150px;
+}
+
+.publish_pos_space{
+  width: 80px;
+}
+
+.publish_meaning_space{
+  width: 150px;
+}
+
+.publish_genre_space{
+  width: 150px;
+}
+
+.publish_text_space{
+  width: 300px;
+}
+
+.publish_good_space{
+  width: 70px;
+}
+
+.publish_recruitment_space{
+  width: 70px;
+}
+
+.publish_btn_space{
+  width: 60px;
+}
+
+tbody.publish_table_scroll{
+  height: 580px;
+  overflow-y: scroll;
 }

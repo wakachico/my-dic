@@ -72,203 +72,204 @@
           <% end %>
         </div>
         <div class="word-contents">
-          <table>
+          <table class="index_table">
             <%# ワード一覧テーブルヘッダー %>
-            <thead>
+            <thead class="table_head">
               <tr>
-                <th width="5%">  </th>
-                <th width="12%">英単語</th>
-                <th width="8%">品詞</th>
-                <th width="15%">和訳</th>
-                <th width="10%">ジャンル</th>
-                <th width="23%">テキスト</th>
-                <th width="5%"> 
+                <th class="important_space">  </th>
+                <th class="name_space">英単語</th>
+                <th class="pos_space">品詞</th>
+                <th class="meaning_space">和訳</th>
+                <th class="genre_space">ジャンル</th>
+                <th class="text_space">テキスト</th>
+                <th class="publish_space"> 
                   <%= image_tag "publish_logo.png", class:"publish-pict" %>
                 </th>
-                <th width="8%">グー</th>
-                <th width="8%">採用</th>
-                <th width="6%">  </th>
+                <th class="good_space">グー</th>
+                <th class="recruitment_space">採用</th>
+                <th class="btn_space">  </th>
               </tr>
             </thead>
             <%# ワード一覧表示 %>
-              <tbody>
-                <% if @words.present?%>
-                  <% @words.each do |word| %>
-                    <tr>
-                      <% if user_signed_in? && @user.id == current_user.id%>
-                        <td>
-                          <%= best_in_place word, :important, :as => :select, collection: [[true, '★'], [false, '☆']] %>
-                        </td>
-                        <td>
-                          <%= best_in_place word, :name, :as => :input %>
-                        </td>
-                        <td>
-                          <%= best_in_place word, :pos_id, :as => :select, collection: Pos.all.map{|pos| [pos.id, pos.name]} %>
-                        </td>
-                        <td>
-                          <%= best_in_place word, :meaning, :as => :input %>
-                        </td>
-                        <td>
-                          <%= best_in_place word, :genre_id, :as => :select, collection: Genre.all.map{|genre| [genre.id, genre.name]} %>
-                        <td>
-                          <%= best_in_place word, :text, :as => :input %>
-                        </td>
-                        <td>
-                          <%= best_in_place word, :publish, :as => :select, collection: [[true, '○'], [false, '×']] %>
-                        </td>
-                        <td>3.5万</td>
-                        <td>3.5万</td>
-                        <td><%= link_to image_tag("bin.jpeg", class:"bin-btn"), word_path(word.id), method: :delete %></td>
-                      <% else %>
-                        <td>
-                          <% if word.important %>
-                            ★
-                          <% else %>
-                            ☆
-                          <% end %>
-                        </td>
-                        <td><%= word.name %></td>
-                        <td><%= word.pos.name %></td>
-                        <td><%= word.meaning %></td>
-                        <td><%= word.genre.name %></td>
-                        <td><%= word.text %></td>
-                        <td>
-                          <% if word.publish %>
-                            ○
-                          <% else %>
-                            ×
-                          <% end %>
-                        </td>
-                        <td>3.5万</td>
-                        <td>3.5万</td>
-                        <td class="recruitment-btn"><%= link_to "採用！", "#" %></td>
-                      <% end %>
-                    </tr>
-                  <% end %>
-                <%# 一覧ダミーデータ %>
-                <% else %>
+            <tbody class ="table_scroll">
+              <% if @words.present?%>
+                <% @words.each do |word| %>
                   <tr>
-                    <td>☆</td>
-                    <td>caterpillar</td>
-                    <td>名詞</td>
-                    <td>イモムシ</td>
-                    <td>アニメ</td>
-                    <td>ポケモン：キャタピーの由来</td>
-                    <td>○</td>
-                    <td>30</td>
-                    <td>50</td>
-                    <td><input type="submit" value="削除" class="send"></td>
-                  </tr>
-                  <tr>
-                    <td>★</td>
-                    <td>pigeon</td>
-                    <td>名詞</td>
-                    <td>鳩</td>
-                    <td>アニメ</td>
-                    <td>ポケモン：ピジョンの由来</td>
-                    <td>○</td>
-                    <td>5</td>
-                    <td>32</td>
-                    <td><input type="submit" value="削除" class="send"></td>
-                  </tr>
-                  <tr>
-                    <td>☆</td>
-                    <td>bee</td>
-                    <td>名詞</td>
-                    <td>蜂</td>
-                    <td>アニメ</td>
-                    <td>ポケモン：ビードルの由来（bee＋needle(針)）</td>
-                    <td>○</td>
-                    <td>1032</td>
-                    <td>405</td>
-                    <td><input type="submit" value="削除" class="send"></td>
-                  </tr>
-                  <tr>
-                    <td>☆</td>
-                    <td>boa</td>
-                    <td>名詞</td>
-                    <td>南米の大蛇の一種</td>
-                    <td>アニメ</td>
-                    <td>ポケモン：アーボの由来（boa（ボア）の逆読み）</td>
-                    <td>×</td>
-                    <td>10</td>
-                    <td>20</td>
-                    <td><input type="submit" value="削除" class="send"></td>
-                  </tr>
-                  <tr>
-                    <td>☆</td>
-                    <td>pixie</td>
-                    <td>名詞</td>
-                    <td>妖精</td>
-                    <td>アニメ</td>
-                    <td>ポケモン：ピクシーの由来</td>
-                    <td>×</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td><input type="submit" value="削除" class="send"></td>
-                  </tr>
-                  <tr>
-                    <td>★</td>
-                    <td>parasite</td>
-                    <td>名詞</td>
-                    <td>寄生虫</td>
-                    <td>アニメ</td>
-                    <td>ポケモン：パラセクトの由来（parasite＋insect(虫)）</td>
-                    <td>○</td>
-                    <td>40</td>
-                    <td>90</td>
-                    <td><input type="submit" value="削除" class="send"></td>
-                  </tr>
-                  <tr>
-                    <td>★</td>
-                    <td>parasite</td>
-                    <td>名詞</td>
-                    <td>寄生虫</td>
-                    <td>アニメ</td>
-                    <td>ポケモン：パラセクトの由来（parasite＋insect(虫)）</td>
-                    <td>○</td>
-                    <td>40</td>
-                    <td>90</td>
-                    <td><input type="submit" value="削除" class="send"></td>
-                  </tr>
-                  <tr>
-                    <td>★</td>
-                    <td>parasite</td>
-                    <td>名詞</td>
-                    <td>寄生虫</td>
-                    <td>アニメ</td>
-                    <td>ポケモン：パラセクトの由来（parasite＋insect(虫)）</td>
-                    <td>○</td>
-                    <td>40</td>
-                    <td>90</td>
-                    <td><input type="submit" value="削除" class="send"></td>
-                  </tr>
-                  <tr>
-                    <td>★</td>
-                    <td>parasite</td>
-                    <td>名詞</td>
-                    <td>寄生虫</td>
-                    <td>アニメ</td>
-                    <td>ポケモン：パラセクトの由来（parasite＋insect(虫)）</td>
-                    <td>○</td>
-                    <td>40</td>
-                    <td>90</td>
-                    <td><input type="submit" value="削除" class="send"></td>
-                  </tr>
-                  <tr>
-                    <td>★</td>
-                    <td>parasite</td>
-                    <td>名詞</td>
-                    <td>寄生虫</td>
-                    <td>アニメ</td>
-                    <td>ポケモン：パラセクトの由来（parasite＋insect(虫)）</td>
-                    <td>○</td>
-                    <td>40</td>
-                    <td>90</td>
-                    <td><input type="submit" value="削除" class="send"></td>
+                    <% if user_signed_in? && @user.id == current_user.id%>
+                      <td class="important_space">
+                        <%= best_in_place word, :important, :as => :select, collection: [[true, '★'], [false, '☆']] %>
+                      </td>
+                      <td class="name_space">
+                        <%= best_in_place word, :name, :as => :input %>
+                      </td>
+                      <td class="pos_space">
+                        <%= best_in_place word, :pos_id, :as => :select, collection: Pos.all.map{|pos| [pos.id, pos.name]} %>
+                      </td>
+                      <td class="meaning_space">
+                        <%= best_in_place word, :meaning, :as => :input %>
+                      </td>
+                      <td class="genre_space">
+                        <%= best_in_place word, :genre_id, :as => :select, collection: Genre.all.map{|genre| [genre.id, genre.name]} %>
+                      </td>
+                      <td class="text_space">
+                        <%= best_in_place word, :text, :as => :input %>
+                      </td>
+                      <td class="publish_space">
+                        <%= best_in_place word, :publish, :as => :select, collection: [[true, '○'], [false, '×']] %>
+                      </td>
+                      <td class="good_space">3.5万</td>
+                      <td class="recruitment_space">3.5万</td>
+                      <td class="btn_space"><%= link_to image_tag("bin.jpeg", class:"bin-btn"), word_path(word.id), method: :delete %></td>
+                    <% else %>
+                      <td class="important_space">
+                        <% if word.important %>
+                          ★
+                        <% else %>
+                          ☆
+                        <% end %>
+                      </td>
+                      <td class="name_space"><%= word.name %></td>
+                      <td class="pos_space"><%= word.pos.name %></td>
+                      <td class="meaning_space"><%= word.meaning %></td>
+                      <td class="genre_space"><%= word.genre.name %></td>
+                      <td class="text_space"><%= word.text %></td>
+                      <td class="publish_space">
+                        <% if word.publish %>
+                          ○
+                        <% else %>
+                          ×
+                        <% end %>
+                      </td>
+                      <td class="good_space">3.5万</td>
+                      <td class="recruitment_space">3.5万</td>
+                      <td class="btn_space"><%= link_to "採用！", "#" , class:"recruitment-btn" %></td>
+                    <% end %>
                   </tr>
                 <% end %>
-              </tbody>
+              <%# 一覧ダミーデータ %>
+              <% else %>
+                <tr>
+                  <td>☆</td>
+                  <td>caterpillar</td>
+                  <td>名詞</td>
+                  <td>イモムシ</td>
+                  <td>アニメ</td>
+                  <td>ポケモン：キャタピーの由来</td>
+                  <td>○</td>
+                  <td>30</td>
+                  <td>50</td>
+                  <td><input type="submit" value="削除" class="send"></td>
+                </tr>
+                <tr>
+                  <td>★</td>
+                  <td>pigeon</td>
+                  <td>名詞</td>
+                  <td>鳩</td>
+                  <td>アニメ</td>
+                  <td>ポケモン：ピジョンの由来</td>
+                  <td>○</td>
+                  <td>5</td>
+                  <td>32</td>
+                  <td><input type="submit" value="削除" class="send"></td>
+                </tr>
+                <tr>
+                  <td>☆</td>
+                  <td>bee</td>
+                  <td>名詞</td>
+                  <td>蜂</td>
+                  <td>アニメ</td>
+                  <td>ポケモン：ビードルの由来（bee＋needle(針)）</td>
+                  <td>○</td>
+                  <td>1032</td>
+                  <td>405</td>
+                  <td><input type="submit" value="削除" class="send"></td>
+                </tr>
+                <tr>
+                  <td>☆</td>
+                  <td>boa</td>
+                  <td>名詞</td>
+                  <td>南米の大蛇の一種</td>
+                  <td>アニメ</td>
+                  <td>ポケモン：アーボの由来（boa（ボア）の逆読み）</td>
+                  <td>×</td>
+                  <td>10</td>
+                  <td>20</td>
+                  <td><input type="submit" value="削除" class="send"></td>
+                </tr>
+                <tr>
+                  <td>☆</td>
+                  <td>pixie</td>
+                  <td>名詞</td>
+                  <td>妖精</td>
+                  <td>アニメ</td>
+                  <td>ポケモン：ピクシーの由来</td>
+                  <td>×</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td><input type="submit" value="削除" class="send"></td>
+                </tr>
+                <tr>
+                  <td>★</td>
+                  <td>parasite</td>
+                  <td>名詞</td>
+                  <td>寄生虫</td>
+                  <td>アニメ</td>
+                  <td>ポケモン：パラセクトの由来（parasite＋insect(虫)）</td>
+                  <td>○</td>
+                  <td>40</td>
+                  <td>90</td>
+                  <td><input type="submit" value="削除" class="send"></td>
+                </tr>
+                <tr>
+                  <td>★</td>
+                  <td>parasite</td>
+                  <td>名詞</td>
+                  <td>寄生虫</td>
+                  <td>アニメ</td>
+                  <td>ポケモン：パラセクトの由来（parasite＋insect(虫)）</td>
+                  <td>○</td>
+                  <td>40</td>
+                  <td>90</td>
+                  <td><input type="submit" value="削除" class="send"></td>
+                </tr>
+                <tr>
+                  <td>★</td>
+                  <td>parasite</td>
+                  <td>名詞</td>
+                  <td>寄生虫</td>
+                  <td>アニメ</td>
+                  <td>ポケモン：パラセクトの由来（parasite＋insect(虫)）</td>
+                  <td>○</td>
+                  <td>40</td>
+                  <td>90</td>
+                  <td><input type="submit" value="削除" class="send"></td>
+                </tr>
+                <tr>
+                  <td>★</td>
+                  <td>parasite</td>
+                  <td>名詞</td>
+                  <td>寄生虫</td>
+                  <td>アニメ</td>
+                  <td>ポケモン：パラセクトの由来（parasite＋insect(虫)）</td>
+                  <td>○</td>
+                  <td>40</td>
+                  <td>90</td>
+                  <td><input type="submit" value="削除" class="send"></td>
+                </tr>
+                <tr>
+                  <td>★</td>
+                  <td>parasite</td>
+                  <td>名詞</td>
+                  <td>寄生虫</td>
+                  <td>アニメ</td>
+                  <td>ポケモン：パラセクトの由来（parasite＋insect(虫)）</td>
+                  <td>○</td>
+                  <td>40</td>
+                  <td>90</td>
+                  <td><input type="submit" value="削除" class="send"></td>
+                </tr>
+              <% end %>
+            </tbody>
           </table>
         </div>
       </div>
