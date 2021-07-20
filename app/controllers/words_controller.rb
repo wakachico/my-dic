@@ -29,6 +29,17 @@ class WordsController < ApplicationController
     end
   end
 
+  def search_mydic
+    @words = Word.search_mydic(params[:keyword], params[:condition], params[:category], params[:id])
+    @user = User.find(params[:id])
+    render "users/show"
+  end
+
+  def search_index
+    @words = Word.search_index(params[:keyword], params[:condition], params[:category])
+    render :index
+  end
+
   private
   def word_params
     params.require(:word).permit(:important, :name, :pos_id, :meaning, :genre_id, :text, :publish).merge(user_id: current_user.id)
