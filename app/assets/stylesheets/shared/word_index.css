@@ -33,6 +33,7 @@
 
 .index-sort{
   margin-right: 50px;
+  display: flex;
 }
 
 .supplement-text{

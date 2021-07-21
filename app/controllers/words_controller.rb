@@ -31,12 +31,25 @@ class WordsController < ApplicationController
 
   def search_mydic
     @words = Word.search_mydic(params[:keyword], params[:condition], params[:category], params[:id])
+    @word = Word.new
     @user = User.find(params[:id])
     render "users/show"
   end
 
   def search_index
     @words = Word.search_index(params[:keyword], params[:condition], params[:category])
+    render :index
+  end
+
+  def order_mydic
+    @words = Word.order_mydic(params[:condition], params[:id])
+    @user = User.find(params[:id])
+    @word = Word.new
+    render "users/show"
+  end
+
+  def order_index
+    @words = Word.order_index(params[:condition])
     render :index
   end
 
