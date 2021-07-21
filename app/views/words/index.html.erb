@@ -14,7 +14,12 @@
               <%= form.submit "検索", class: "search-btn" %>
             <% end %>
         </div>
-        <div class="index-sort">並び替え▼</div>
+        <div class="index-sort">
+          <%= form_with(url: order_index_words_path, local: true, method: :get, class: "word-search") do |form| %>
+            <%= form.select :condition, [['登録新しい順', 1], ['登録古い順', 2], ['英単語ｱﾙﾌｧﾍﾞｯﾄ順', 3], ['グー数多い順', 4], ['採用数多い順', 5], ['品詞順', 6], ['ジャンル順', 7]] %>
+            <%= form.submit "並び替え", class: "search-btn" %>
+          <% end %>
+        </div>
       </div>
     </div>
     <div class="word-index-data">

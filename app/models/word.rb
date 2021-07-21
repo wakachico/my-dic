@@ -64,4 +64,42 @@ class Word < ApplicationRecord
       Word.all
     end
   end
+
+  def self.order_mydic(condition,id)
+    if condition == "1" 
+      Word.where(user_id: id).order(created_at: :desc)
+    elsif condition == "2"
+      Word.where(user_id: id).order(created_at: :asc)
+    elsif condition == "3"
+      Word.where(user_id: id).order(name: :asc)
+    elsif condition == "4"
+      Word.where(user_id: id).order(important: :desc)
+    elsif condition == "5"
+      Word.where(user_id: id).order(name: :asc) #グー数順（保留）
+    elsif condition == "6"
+      Word.where(user_id: id).order(name: :asc) #採用数順（保留）
+    elsif condition == "7"
+      Word.where(user_id: id).order(pos_id: :asc)
+    elsif condition == "8"
+      Word.where(user_id: id).order(genre_id: :asc)
+    end
+  end
+
+  def self.order_index(condition)
+    if condition == "1" 
+      Word.order(created_at: :desc)
+    elsif condition == "2"
+      Word.order(created_at: :asc)
+    elsif condition == "3"
+      Word.order(name: :asc)
+    elsif condition == "4"
+      Word.order(name: :asc) #グー数順（保留）
+    elsif condition == "5"
+      Word.order(name: :asc) #採用数順（保留）
+    elsif condition == "6"
+      Word.order(pos_id: :asc)
+    elsif condition == "7"
+      Word.order(genre_id: :asc)
+    end
+  end
 end

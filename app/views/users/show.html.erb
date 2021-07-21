@@ -64,7 +64,12 @@
               <%= form.submit "検索", class: "search-btn" %>
             <% end %>
           </div>
-          <div class="index-sort">並び替え▼</div>
+          <div class="index-sort">
+            <%= form_with(url: order_mydic_word_path(@user.id), local: true, method: :get, class: "word-search") do |form| %>
+              <%= form.select :condition, [['登録新しい順', 1], ['登録古い順', 2], ['英単語ｱﾙﾌｧﾍﾞｯﾄ順', 3], ['重要ワード優先', 4], ['グー数多い順', 5], ['採用数多い順', 6], ['品詞順', 7], ['ジャンル順', 8]] %>
+              <%= form.submit "並び替え", class: "search-btn" %>
+            <% end %>
+          </div>
         </div>
       </div>
       <div class="word-index-data">

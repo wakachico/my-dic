@@ -9,5 +9,11 @@ Rails.application.routes.draw do
     collection do
       get 'search_index'
     end
+    member do
+      get 'order_mydic'
+    end
+    collection do
+      get 'order_index'
+    end
   end
 end
