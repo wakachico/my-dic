@@ -19,13 +19,13 @@
 
 | Column              | Type          | Options                         |
 | ------------------- | ------------- | ------------------------------- |
-| important           | boolean       | null: false, default: true      |
+| important           | boolean       | null: false, default: false     |
 | name                | string        | null: false                     |
 | pos_id              | integer       | null: false                     |
 | meaning             | text          | null: false                     |
 | genre_id            | integer       | null: false                     |
 | text                | text          |                                 |
-| publish             | boolean       | null: false, default: true      |
+| publish             | boolean       | null: false, default: false     |
 | user                | references    | null: false, foreign_key: true  |
 | test                | references    | null: false, foreign_key: true  |
 
