@@ -18,6 +18,12 @@
 
 .new-word-header{
   padding: 5px;
+  display: flex;
+}
+
+.pull-error{
+  margin-left: 30px;
+  color: red;
 }
 
 .new-word-form{

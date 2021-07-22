@@ -53,6 +53,26 @@ class WordsController < ApplicationController
     render :index
   end
 
+  def weblio_pull
+    lib_url='https://ejje.weblio.jp/content/'.freeze
+    xpath="//*[@id=\"summary\"]/div[2]/table/tbody/tr/td[2]".freeze
+
+    if params[:name].blank?
+      render json: { error: '※検索ワードを入れてください。' } and return 
+      return
+    end
+
+    url = URI.encode(lib_url + params[:name])
+    html = URI.open(url).read
+    doc = Nokogiri::HTML.parse(html)
+    result = doc.xpath(xpath).text
+    if result.blank?
+      render json: { error: '※一致する見出し語は見つかりませんでした。' } and return  
+    else
+      render json:{ result: result } 
+    end
+  end
+
   private
   def word_params
     params.require(:word).permit(:important, :name, :pos_id, :meaning, :genre_id, :text, :publish).merge(user_id: current_user.id)

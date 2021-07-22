@@ -10,6 +10,7 @@
       <div class="new-word">
         <div class="new-word-header">
           <h3> - My dicに英単語追加 - </h3>
+          <div id="pull-error" class="pull-error"></div>
         </div>
         <%= form_with model: @word, url: words_path, method: :post, class: "new-word-form", local: true do |f| %>
           <div class="important">
@@ -20,8 +21,7 @@
             <p>英単語</p>
             <%= f.text_area :name, class:"name-form", id:"word-name", placeholder:"英単語を入力" %>
             <div class="link-list">
-              <%= link_to "Weblio", "#", class: "weblio-link"%>
-              <%= link_to "公開ワード", "#", class: "publish-link"%>
+              <%= submit_tag "Weblio引用", class: "weblio-link", id: "weblio-link" %>
             </div>
           </div>
           <div class="pos">

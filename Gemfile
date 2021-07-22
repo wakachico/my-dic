@@ -60,3 +60,6 @@ gem 'active_hash'
 gem 'jquery-rails'
 gem 'best_in_place'
 gem "will_paginate", "~> 3.1.7"
+
+gem 'open-uri'
+gem 'nokogiri'
