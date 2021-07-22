@@ -15,5 +15,8 @@ Rails.application.routes.draw do
     collection do
       get 'order_index'
     end
+    collection do
+      get 'weblio_pull'
+    end
   end
 end
