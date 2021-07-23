@@ -3,6 +3,7 @@ class WordsController < ApplicationController
 
   def index
     @words = Word.where(publish: true)
+    @good = Good.new
   end
 
   def create
@@ -10,6 +11,7 @@ class WordsController < ApplicationController
     if  @word.save
       redirect_to user_path(current_user.id)
     else
+      @user = current_user
       render "users/show"
     end
   end

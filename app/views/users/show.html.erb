@@ -87,7 +87,10 @@
                 <th class="publish_space"> 
                   <%= image_tag "publish_logo.png", class:"publish-pict" %>
                 </th>
-                <th class="good_space">グー</th>
+                <th class="good_space">
+                  <%= image_tag "good_img.png", class:"good_image" %>
+                  グー
+                </th>
                 <th class="recruitment_space">採用</th>
                 <th class="btn_space">  </th>
               </tr>
@@ -119,7 +122,7 @@
                       <td class="publish_space">
                         <%= best_in_place word, :publish, :as => :select, collection: [[true, '○'], [false, '×']] %>
                       </td>
-                      <td class="good_space">3.5万</td>
+                      <td class="good_space"><%= word.goods.count %></td>
                       <td class="recruitment_space">3.5万</td>
                       <td class="btn_space"><%= link_to image_tag("bin.jpeg", class:"bin-btn"), word_path(word.id), method: :delete %></td>
                     <% else %>
@@ -142,7 +145,7 @@
                           ×
                         <% end %>
                       </td>
-                      <td class="good_space">3.5万</td>
+                      <td class="good_space"><%= word.goods.count %></td>
                       <td class="recruitment_space">3.5万</td>
                       <td class="btn_space"><%= link_to "採用！", "#" , class:"recruitment-btn" %></td>
                     <% end %>

@@ -1,5 +1,7 @@
 class Word < ApplicationRecord
   belongs_to :user
+  has_many :goods, dependent: :destroy
+  has_many :good_users, through: :goods, source: :user
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :pos
@@ -75,7 +77,7 @@ class Word < ApplicationRecord
     elsif condition == "4"
       Word.where(user_id: id).order(important: :desc)
     elsif condition == "5"
-      Word.where(user_id: id).order(name: :asc) #グー数順（保留）
+      Word.where(user_id: id).select('words.*', 'count(goods.id) AS goos').left_joins(:goods).group('words.id').order('goos desc')
     elsif condition == "6"
       Word.where(user_id: id).order(name: :asc) #採用数順（保留）
     elsif condition == "7"
@@ -93,7 +95,7 @@ class Word < ApplicationRecord
     elsif condition == "3"
       Word.order(name: :asc)
     elsif condition == "4"
-      Word.order(name: :asc) #グー数順（保留）
+      Word.select('words.*', 'count(goods.id) AS goos').left_joins(:goods).group('words.id').order('goos desc')
     elsif condition == "5"
       Word.order(name: :asc) #採用数順（保留）
     elsif condition == "6"
