@@ -33,7 +33,10 @@
               <th class="publish_meaning_space">和訳</th>
               <th class="publish_genre_space">ジャンル</th>
               <th class="publish_text_space">テキスト</th>
-              <th class="publish_good_space">グー</th>
+              <th class="publish_good_space">
+                <%= image_tag "good_img.png", class:"good_image" %>
+                グー
+              </th>
               <th class="publish_recruitment_space">採用</th>
               <th class="publish_btn_space">  </th>
             </tr>
@@ -47,7 +50,18 @@
                 <td class="publish_meaning_space"><%= word.meaning %></td>
                 <td class="publish_genre_space"><%= word.genre.name %></td>
                 <td class="publish_text_space"><%= word.text %></td>
-                <td class="publish_good_space">3.5万</td>
+                <td class="publish_good_space">
+                  <% if user_signed_in? && current_user.id != word.user_id %>
+                    <% if current_user&.good?(word) %>
+                      <%= link_to image_tag("good_img.png", class:"good_image"), word_good_path(word.id,Good.find_by(word_id: word.id, user_id: current_user.id)), method: :delete %>
+                    <% else %>
+                      <%= link_to image_tag("ungood_img.png", class:"good_image"),word_goods_path(word), method: :post %>
+                    <% end %>
+                  <% else %>
+                    <%= image_tag("good_img.png", class:"good_image") %>
+                  <% end %>
+                  <%= word.goods.count %>
+                </td>
                 <td class="publish_recruitment_space">3.5万</td>
                 <td class="publish_btn_space">
                   <% if current_user.id != word.user_id %>
