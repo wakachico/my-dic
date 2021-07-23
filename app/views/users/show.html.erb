@@ -60,7 +60,7 @@
               <%= form.text_field :keyword, placeholder: "検索ワード入力", class: "search-input" %>
               <%= form.select :condition, [['を含む', 1], ['から始まる', 2]] %>
               <%= form.select :category, [['全て', 1],['英単語', 2], ['和訳', 3], ['テキスト', 4]] %>
-              <div>を</div>
+              <div class="search-text">を</div>
               <%= form.submit "検索", class: "search-btn" %>
             <% end %>
           </div>
