@@ -164,13 +164,29 @@
     <div class="side-bar-contents">
       <div class="publish-users">
         <div class="sub-title">
-          - ユーザー検索 -
+          - ワード検索 -
         </div>
         <div class="try-test">
-            <%= link_to "公開ワードを見に行く", root_path, class: "test-link"%>
+            <%= link_to "公開ワード検索", root_path, class: "test-link"%>
         </div>
-        <div class="list">過去にグーしたユーザー▼</div>
-        <div class="list">過去に採用したユーザー▼</div>
+        <div class="list">〜最近グーしたワード〜
+          <% if @good_words.present? %>
+            <% @good_words.each do |word| %>
+              <%= link_to word.name, user_path(word.user.id), class: "good_adoption_words"%>
+            <% end %>
+           <% else %>
+            <p>※グーワードはありません</p>
+          <% end %>
+        </div>
+        <div class="list">〜最近採用したワード〜
+          <% if @adoption_words.present? %>
+            <% @adoption_words.each do |word| %>
+              <%= link_to word.name, user_path(word.user.id), class: "good_adoption_words"%>
+            <% end %>
+          <% else %>
+            <p>※採用ワードはありません</p>
+          <% end %>
+        </div>
       </div>
       <div class="test">
         <div class="sub-title">

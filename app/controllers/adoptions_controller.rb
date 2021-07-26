@@ -9,7 +9,7 @@ class AdoptionsController < ApplicationController
       meaning: @word.meaning, 
       genre_id: @word.genre_id, 
       text: @word.text, 
-      publish: @word.publish,
+      publish: false,
       user_id: current_user.id
       })
     @user = current_user
