@@ -14,6 +14,8 @@
 - has_many :tests
 - has_many :goods
 - has_many :good_words, through: :goods, source: :word
+- has_many :adoptions
+- has_many :adoption_words, through: :adoptions, source: :word
 
 ## words テーブル 
 
@@ -35,10 +37,24 @@
 - belongs_to :test
 - has_many :goods
 - has_many :good_users, through: :goods,source: :user
+- has_many :adoptions
+- has_many :adoption_users, through: :adoptions,source: :user
 - belongs_to_active_hash  :pos
 - belongs_to_active_hash  :genre
 
 ## goods テーブル
+
+| Column     | Type       | Options                        |
+| ---------- | ---------- | ------------------------------ |
+| user       | references | null: false, foreign_key: true |
+| word       | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :word
+
+## adoptions テーブル
 
 | Column     | Type       | Options                        |
 | ---------- | ---------- | ------------------------------ |

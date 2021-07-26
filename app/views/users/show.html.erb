@@ -123,7 +123,7 @@
                         <%= best_in_place word, :publish, :as => :select, collection: [[true, '○'], [false, '×']] %>
                       </td>
                       <td class="good_space"><%= word.goods.count %></td>
-                      <td class="recruitment_space">3.5万</td>
+                      <td class="recruitment_space"> <%= word.adoptions.count %> </td>
                       <td class="btn_space"><%= link_to image_tag("bin.jpeg", class:"bin-btn"), word_path(word.id), method: :delete %></td>
                     <% else %>
                       <td class="important_space">
@@ -146,8 +146,8 @@
                         <% end %>
                       </td>
                       <td class="good_space"><%= word.goods.count %></td>
-                      <td class="recruitment_space">3.5万</td>
-                      <td class="btn_space"><%= link_to "採用！", "#" , class:"recruitment-btn" %></td>
+                      <td class="recruitment_space"> <%= word.adoptions.count %> </td>
+                      <td class="btn_space"><%= link_to "採用！", word_adoptions_path(word), method: :post , class:"recruitment-btn" %></td>
                     <% end %>
                   </tr>
                 <% end %>

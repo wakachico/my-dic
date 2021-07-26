@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_many :words, dependent: :destroy
   has_many :goods, dependent: :destroy
   has_many :good_words, through: :goods, source: :word
+  has_many :adoptions, dependent: :destroy
+  has_many :adoption_words, through: :adoptions, source: :word
 
   validates :nickname, presence: true
   
@@ -22,5 +24,17 @@ class User < ApplicationRecord
 
   def ungood(word)
     good_words.delete(word)
+  end
+
+  def adoption(word)
+    adoptions.find_or_create_by(word: word)
+  end
+
+  def unadoption(word)
+    adoption_words.delete(word)
+  end
+
+  def adoption_word_create(word)
+    Word.create(word)
   end
 end
