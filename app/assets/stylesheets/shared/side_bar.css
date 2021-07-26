@@ -1,5 +1,5 @@
 .side-bar{
-  padding: 33px 15px 15px 0;
+  padding: 15px 15px 15px 0;
   width: 17%;
 }
 
@@ -15,10 +15,15 @@
 
 .list{
   text-align: center;
+  margin-bottom: 15px;
+}
+
+.good_adoption_words{
+  display: block;
 }
 
 .test{
-  padding: 10px;
+  padding: 0 10px 10px 10px;
 }
 
 .try-test{

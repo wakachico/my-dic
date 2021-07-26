@@ -81,7 +81,7 @@ class Word < ApplicationRecord
     elsif condition == "5"
       Word.where(user_id: id).select('words.*', 'count(goods.id) AS goos').left_joins(:goods).group('words.id').order('goos desc')
     elsif condition == "6"
-      Word.where(user_id: id).order(name: :asc) #採用数順（保留）
+      Word.where(user_id: id).select('words.*', 'count(adoptions.id) AS ados').left_joins(:adoptions).group('words.id').order('ados desc')
     elsif condition == "7"
       Word.where(user_id: id).order(pos_id: :asc)
     elsif condition == "8"
@@ -99,7 +99,7 @@ class Word < ApplicationRecord
     elsif condition == "4"
       Word.select('words.*', 'count(goods.id) AS goos').left_joins(:goods).group('words.id').order('goos desc')
     elsif condition == "5"
-      Word.order(name: :asc) #採用数順（保留）
+      Word.select('words.*', 'count(adoptions.id) AS ados').left_joins(:adoptions).group('words.id').order('ados desc')
     elsif condition == "6"
       Word.order(pos_id: :asc)
     elsif condition == "7"
