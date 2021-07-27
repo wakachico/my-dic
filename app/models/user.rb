@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :good_words, through: :goods, source: :word
   has_many :adoptions, dependent: :destroy
   has_many :adoption_words, through: :adoptions, source: :word
+  has_many :tests
 
   validates :nickname, presence: true
   

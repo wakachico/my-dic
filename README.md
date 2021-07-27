@@ -85,7 +85,7 @@
 | Column       | Type       | Options                         |
 | ------------ | ---------- | ------------------------------- |
 | score        | integer    | null: false                     |
-| word_answer  | text       | null: false                     |
+| word_answer  | text       |                                 |
 | test         | references | null: false, foreign_key: true  |
 
 ### Association

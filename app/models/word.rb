@@ -4,6 +4,7 @@ class Word < ApplicationRecord
   has_many :good_users, through: :goods, source: :user
   has_many :adoptions, dependent: :destroy
   has_many :adoption_users, through: :adoptions, source: :user
+  belongs_to :test
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :pos

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_23_092706) do
+ActiveRecord::Schema.define(version: 2021_07_27_025601) do
 
   create_table "adoptions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "word_id", null: false
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 2021_07_23_092706) do
     t.index ["word_id"], name: "index_adoptions_on_word_id"
   end
 
+  create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "score", null: false
+    t.text "word_answer"
+    t.bigint "test_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["test_id"], name: "index_answers_on_test_id"
+  end
+
   create_table "goods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "word_id", null: false
     t.bigint "user_id", null: false
@@ -28,6 +37,14 @@ ActiveRecord::Schema.define(version: 2021_07_23_092706) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_goods_on_user_id"
     t.index ["word_id"], name: "index_goods_on_word_id"
+  end
+
+  create_table "tests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "type_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_tests_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -59,7 +76,9 @@ ActiveRecord::Schema.define(version: 2021_07_23_092706) do
 
   add_foreign_key "adoptions", "users"
   add_foreign_key "adoptions", "words"
+  add_foreign_key "answers", "tests"
   add_foreign_key "goods", "users"
   add_foreign_key "goods", "words"
+  add_foreign_key "tests", "users"
   add_foreign_key "words", "users"
 end
