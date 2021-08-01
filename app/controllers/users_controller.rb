@@ -5,5 +5,6 @@ class UsersController < ApplicationController
     @words = @user.words.order("created_at DESC")
     @good_words = @user.good_words.order(created_at: :desc).limit(5)
     @adoption_words = @user.adoption_words.order(created_at: :desc).limit(5)
+    @test = Test.new
   end
 end

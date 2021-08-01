@@ -4,6 +4,7 @@ class Word < ApplicationRecord
   has_many :good_users, through: :goods, source: :user
   has_many :adoptions, dependent: :destroy
   has_many :adoption_users, through: :adoptions, source: :user
+  has_many :answers
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :pos
@@ -105,5 +106,29 @@ class Word < ApplicationRecord
     elsif condition == "7"
       Word.order(genre_id: :asc)
     end
+  end
+
+  def self.questions(id)
+    ok_id=[] 
+    5.times do
+      count = 0
+      while count < 1
+        last = Word.last.id
+        num = rand(0..last)
+        word = Word.find_by('id >= ?', num)
+        if word != nil && word.user_id == id
+          if ok_id.empty? 
+            ok_id.push(word.id)
+            count = 1
+          end
+          unless ok_id.include?(word.id)
+            ok_id.push(word.id)
+            count = 1
+          end
+        end
+      end
+    end
+    words = Word.where(id: ok_id)
+    return words
   end
 end

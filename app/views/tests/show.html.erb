@@ -1,0 +1,54 @@
+テスト画面(testController/showAction)
+<% if @test.type_id == 1 %>
+  <div class="test-word">
+    <%= form_with(model: @test, url: test_answers_path(@test.id), local: true, method: :post, class: "test-link") do |f| %>
+      <% i=0 %>
+      <% @words.each do |word| %>
+        <p class="question-num"> - <%= i + 1 %>問目 - </p>
+        <div class="question">
+          <div class="question-text">
+            和訳：
+            <div>
+              <%= word.meaning %>
+              <%= f.hidden_field :word_id, :value => word.id, name: "answers[][word_id]" %>
+            </div>
+          </div>
+          <div class="question-answer">
+            <div class="heading">
+              英語：
+            </div>
+            <%= f.text_field :word_answer, class:"answer-form" , name: "answers[][word_answer]"%>
+          </div>
+          <% i += 1 %>
+        </div>
+      <% end %>
+      <%= f.submit "回答完了！" ,class:"add-btn" %>
+    <% end %>
+  </div>
+<% else %>
+  <div class="test-word">
+    <%= form_with(model: @test, url: test_answers_path(@test.id), local: true, method: :post, class: "test-link") do |f| %>
+      <% i=0 %>
+      <% @words.each do |word| %>
+        <p class="question-num"> - <%= i + 1 %>問目 - </p>
+        <div class="question">
+          <div class="question-text">
+            英語：
+            <div>
+              <%= word.name %>
+              <%= f.hidden_field :word_id, :value => word.id, name: "answers[][word_id]" %>
+            </div>
+          </div>
+          <div class="question-answer">
+            <div class="heading">
+              和訳：
+            </div>
+            <%= f.text_field :word_answer, class:"answer-form" , name: "answers[][word_answer]"%>
+          </div>
+          <% i += 1 %>
+        </div>
+      <% end %>
+      <%= f.submit "回答完了！" ,class:"add-btn" %>
+    <% end %>
+  </div>
+<% end %>

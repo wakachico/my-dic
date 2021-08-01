@@ -1,0 +1,50 @@
+.test-word{
+  padding: 30px;
+}
+
+.question{
+  margin-top: 10px;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.question-text{
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.question-answer{
+  margin-bottom: 10px;
+  display: flex;
+}
+
+.answer-form{
+  width: 500px;
+}
+
+.test-heading{
+  display: flex;
+}
+
+.total-score{
+  margin-right: 30px;
+  display: flex;
+}
+
+.question-heading{
+  display: flex;
+}
+
+.question-score{
+  margin-left: 30px;
+}
+
+.correct-answer{
+  margin-bottom: 20px;
+  display: flex;
+  color: red;
+}
+
+.test-footer{
+  display: flex;
+}
