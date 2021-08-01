@@ -34,11 +34,11 @@
 ### Association
 
 - belongs_to :user
-- belongs_to :test
+- has_many :answers
 - has_many :goods
-- has_many :good_users, through: :goods,source: :user
+- has_many :good_users, through: :goods, source: :user
 - has_many :adoptions
-- has_many :adoption_users, through: :adoptions,source: :user
+- has_many :adoption_users, through: :adoptions, source: :user
 - belongs_to_active_hash  :pos
 - belongs_to_active_hash  :genre
 
@@ -76,7 +76,6 @@
 ### Association
 
 - belongs_to :user
-- has_many :words
 - has_many :answers
 - belongs_to_active_hash  :type
 
@@ -87,7 +86,9 @@
 | score        | integer    | null: false                     |
 | word_answer  | text       |                                 |
 | test         | references | null: false, foreign_key: true  |
+| word         | references | null: false, foreign_key: true  |
 
 ### Association
 
 - belongs_to :test
+- belongs_to :word

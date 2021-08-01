@@ -167,7 +167,7 @@
           - ワード検索 -
         </div>
         <div class="try-test">
-            <%= link_to "公開ワード検索", root_path, class: "test-link"%>
+            <%= link_to "公開ワード検索", root_path, class: "publish-btn"%>
         </div>
         <div class="list">〜最近グーしたワード〜
           <% if @good_words.present? %>
@@ -188,73 +188,82 @@
           <% end %>
         </div>
       </div>
-      <div class="test">
-        <div class="sub-title">
-          - テスト -
+      <% if user_signed_in? && @user.id == current_user.id %>
+        <div class="test">
+          <div class="sub-title">
+            - テスト -
+          </div>
+          <div class="try-test">
+            <% if @words.count >= 5 %>
+              <%= form_with(model: @test, url: test_path, local: true, method: :get, class: "test-link") do |form| %>
+                <%= form.collection_select(:type_id, Type.all, :id, :name, {}, {class:"test-type-select-box", id:"test-type"}) %>
+                <%= form.submit "テストを受ける", class: "test-btn" %>
+              <% end %>
+            <% else %>
+              <div>５件以上ワード登録で<br>テスト機能利用可能！</div>
+            <% end %>
+          </div>
+          <div class="test-result">
+            <div class="sub-title"> - テスト結果 -</div>
+            <table class="calendar">
+              <tr>
+                <th class="red">日</th>
+                <th>月</th>
+                <th>火</th>
+                <th>水</th>
+                <th>木</th>
+                <th>金</th>
+                <th class="blue">土</th>
+              </tr>
+              <tr>
+                <td class="red"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="blue"></th>
+              </tr>
+              <tr>
+                <td class="red"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="blue"></th>
+              </tr>
+              <tr>
+                <td class="red"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="blue"></th>
+              </tr>
+              <tr>
+                <td class="red"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="blue"></th>
+              </tr>
+              <tr>
+                <td class="red"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="blue"></th>
+              </tr>
+            </table>
+          </div>
         </div>
-        <div class="try-test">
-            <%= link_to "テストを受けに行く", "#", class: "test-link"%>
-        </div>
-        <div class="test-result">
-          <div class="sub-title"> - テスト結果 -</div>
-          <table class="calendar">
-            <tr>
-              <th class="red">日</th>
-              <th>月</th>
-              <th>火</th>
-              <th>水</th>
-              <th>木</th>
-              <th>金</th>
-              <th class="blue">土</th>
-            </tr>
-            <tr>
-              <td class="red"></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td class="blue"></th>
-            </tr>
-            <tr>
-              <td class="red"></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td class="blue"></th>
-            </tr>
-            <tr>
-              <td class="red"></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td class="blue"></th>
-            </tr>
-            <tr>
-              <td class="red"></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td class="blue"></th>
-            </tr>
-            <tr>
-              <td class="red"></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td class="blue"></th>
-            </tr>
-          </table>
-        </div>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>

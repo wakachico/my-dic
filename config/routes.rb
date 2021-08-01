@@ -2,6 +2,11 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "words#index"
   resources :users, only: :show
+
+  resources :tests, only: [:show, :update] do
+    resources :answers, only: :create
+  end
+  
   resources :words, only: [ :index, :create, :destroy, :edit, :update ] do
     resources :goods, only: [:create, :destroy]
     resources :adoptions, only: [:create, :destroy]

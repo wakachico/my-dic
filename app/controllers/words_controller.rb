@@ -7,13 +7,8 @@ class WordsController < ApplicationController
   end
 
   def create
-    @word = Word.new(word_params)
-    if  @word.save
-      redirect_to user_path(current_user.id)
-    else
-      @user = current_user
-      render "users/show"
-    end
+    @word = Word.create(word_params)
+    redirect_to user_path(current_user.id)
   end
 
   def destroy

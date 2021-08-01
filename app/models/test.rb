@@ -1,6 +1,5 @@
 class Test < ApplicationRecord
   belongs_to :user
-  has_many :words
   has_many :answers
 
   extend ActiveHash::Associations::ActiveRecordExtensions

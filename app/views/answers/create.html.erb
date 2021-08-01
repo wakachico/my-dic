@@ -1,0 +1,113 @@
+<div class="test-heading">
+  テスト採点画面
+</div>
+<% if @test.type_id == 1 %>
+  <div class="test-word">
+    <%= form_with(model: @answer, url:  test_path(@test.id), local: true, method: :put, class: "test-link") do |f| %>
+      <% i=0 %>
+      <% @answers.each do |answer| %>
+        <div class="question-heading">
+          <p class="question-num"> - <%= i + 1 %>問目 - </p>
+          <div class="question-score">
+            採点：
+            <%= f.select :score, {'0': 0, '1': 1}, {include_blank: false, selected: answer[:score]},{ class: 'form-score-select',id: "score#{answer.id}" ,name: "answers[][score]"} %>
+            点
+          </div>
+        </div>
+        <div class="question">
+          <div class="question-text">
+            和訳：
+            <div>
+              <%= answer.word.meaning %>
+              <%= f.hidden_field :word_id, :value => answer.word.id, name: "answers[][word_id]" %>
+            </div>
+          </div>
+          <div class="question-answer">
+            <div class="heading">
+              回答：
+            </div>
+            <%= answer.word_answer %>
+            <%= f.hidden_field :word_answer, :value => answer.word_answer, name: "answers[][word_answer]" %>
+          </div>
+          <div class="correct-answer">
+            <div class="heading">
+              答え：
+            </div>
+            <%= answer.word.name %>
+          </div>
+          <% i += 1 %>
+        </div>
+      <% end %>
+      <div class="test-footer">
+        <div class="total-score">
+          合計点：
+          <div>
+            <span id="total-score"><%= @total_score %></span>点
+          </div>
+        </div>
+        <%= f.submit "採点完了" ,class:"add-btn" %>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <div class="test-word">
+    <%= form_with(model: @answer, url:  test_path(@test.id), local: true, method: :put, class: "test-link") do |f| %>
+      <% i=0 %>
+      <% @answers.each do |answer| %>
+        <div class="question-heading">
+          <p class="question-num"> - <%= i + 1 %>問目 - </p>
+          <div class="question-score">
+            採点：
+            <%= f.select :score, {'0': 0, '1': 1}, {include_blank: false, selected: answer[:score]},{ class: 'form-score-select',id: "score#{answer.id}" ,name: "answers[][score]"} %>
+            点
+          </div>
+        </div>
+        <div class="question">
+          <div class="question-text">
+            英語：
+            <div>
+              <%= answer.word.name %>
+              <%= f.hidden_field :word_id, :value => answer.word.id, name: "answers[][word_id]" %>
+            </div>
+          </div>
+          <div class="question-answer">
+            <div class="heading">
+              回答：
+            </div>
+            <%= answer.word_answer %>
+            <%= f.hidden_field :word_answer, :value => answer.word_answer, name: "answers[][word_answer]" %>
+          </div>
+          <div class="correct-answer">
+            <div class="heading">
+              答え：
+            </div>
+            <%= answer.word.meaning %>
+          </div>
+          <% i += 1 %>
+        </div>
+      <% end %>
+      <div class="test-footer">
+        <div class="total-score">
+          合計点：
+          <div>
+            <span id="total-score"><%= @total_score %></span>点
+          </div>
+        </div>
+        <%= f.submit "採点完了" ,class:"add-btn" %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+  $('select').on('change',function(e) {
+    e.preventDefault();
+    var total_score = Number( 0 ) ;
+    for (var i = 1; i <= 5; i++) {
+      var update_answer_id = (<%= @test.id %> - 1 ) * 5 + i;
+      var answer_score = $("#score" + update_answer_id).val();
+      total_score += parseInt(answer_score);
+    };
+    $('#total-score').text(total_score);
+  });
+</script>
