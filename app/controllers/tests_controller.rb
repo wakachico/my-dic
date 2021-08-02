@@ -3,12 +3,14 @@ class TestsController < ApplicationController
   def show
     @words = Word.questions(current_user.id)
     @test = Test.create(test_params)
+    binding.pry
+    @test.update(start_time: @test.created_at)
     @answers = @words.map do |word| 
       Answer.create(
         test_id: @test.id,
         word_id: word.id,
         word_answer: "",
-        score: 0
+        score: 0,
       )
     end
   end
@@ -30,7 +32,7 @@ class TestsController < ApplicationController
 
   private
   def test_params
-    params.require(:test).permit(:type_id).merge(user_id: current_user.id)
+    params.require(:test).permit(:type_id,:start_time).merge(user_id: current_user.id)
   end
 
 end

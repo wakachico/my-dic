@@ -114,7 +114,7 @@ tr{
   justify-content: space-around;
 }
 
-th{
+.table_head th{
   padding: 10px 10px 0 10px;
   border-bottom: 3px solid black;
   text-align: center;

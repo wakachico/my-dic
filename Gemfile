@@ -63,3 +63,5 @@ gem "will_paginate", "~> 3.1.7"
 
 gem 'open-uri'
 gem 'nokogiri'
+
+gem 'simple_calendar', '~> 2.0'

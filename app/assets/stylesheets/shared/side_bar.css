@@ -1,6 +1,6 @@
 .side-bar{
-  padding: 15px 15px 15px 0;
-  width: 17%;
+  padding: 15px 0 15px 0;
+  width: 20%;
 }
 
 .side-bar-contents{
@@ -55,23 +55,41 @@
   padding: 10px;
 }
 
-.calendar th{
+.simple-calendar th{
+  text-align: center;
+  border-bottom: 3px solid black;
   padding: 0;
-  width: 10px;
-  height: 20px;
-  border: 1px solid black;
 }
 
-.calendar td{
-  width: 10px;
-  height: 20px;
-  border: 1px solid black;
+.simple-calendar td{
+  vertical-align: top;
 }
 
-.red{
-  background-color: thistle;
+.wday-0{
+  background-color: rgb(255, 215, 221);
 }
 
-.blue{
-  background-color: skyblue;
+.wday-6{
+  background-color: rgb(215, 229, 255);
+}
+
+.simple-calendar{
+  font-size: 11px;
+  width: 100%;
+  text-align: center;
+}
+
+.calendar-heading{
+  font-size: 13px;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.table-striped{
+  width: 30px;
+  height: 100px;
+}
+
+.calendar-day{
+  font-size: 3px;
 }
