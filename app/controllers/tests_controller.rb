@@ -18,7 +18,7 @@ class TestsController < ApplicationController
     i = 1
     params[:answers].each do |answer| 
       # update_answer_id = (@test.id - 1 ) * 5 + i
-      update_answer_id = ( ( @test.id + 5 ) / 10 - 1 + i ) * 10 + 5
+      update_answer_id = ( ( @test.id + 5 ) / 10 - 2 + i ) * 10 + 5
       update_answer = Answer.find(update_answer_id)
       update_answer.update(score: answer[:score])
       i += 1

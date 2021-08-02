@@ -105,7 +105,7 @@
     var total_score = Number( 0 ) ;
     for (var i = 1; i <= 5; i++) {
       // var update_answer_id = (<%= @test.id %> - 1 ) * 5 + i;
-      var update_answer_id =  ( (<%= @test.id %> + 5 ) / 10 - 1 + i ) * 10 + 5;
+      var update_answer_id =  ( (<%= @test.id %> + 5 ) / 10 - 2 + i ) * 10 + 5;
       var answer_score = $("#score" + update_answer_id).val();
       total_score += parseInt(answer_score);
     };
