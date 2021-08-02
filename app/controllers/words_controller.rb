@@ -1,5 +1,6 @@
 class WordsController < ApplicationController
   before_action :authenticate_user!, only: [:index, :new, :create, :edit, :update, :destroy]
+  before_action :set_data,only: [:search_mydic, :order_mydic]
 
   def index
     @words = Word.where(publish: true)
@@ -28,8 +29,6 @@ class WordsController < ApplicationController
 
   def search_mydic
     @words = Word.search_mydic(params[:keyword], params[:condition], params[:category], params[:id])
-    @word = Word.new
-    @user = User.find(params[:id])
     render "users/show"
   end
 
@@ -40,8 +39,6 @@ class WordsController < ApplicationController
 
   def order_mydic
     @words = Word.order_mydic(params[:condition], params[:id])
-    @user = User.find(params[:id])
-    @word = Word.new
     render "users/show"
   end
 
@@ -71,6 +68,14 @@ class WordsController < ApplicationController
   end
 
   private
+  def set_data
+    @user = User.find(params[:id])
+    @word = Word.new
+    @good_words = @user.good_words.order(created_at: :desc).limit(5)
+    @adoption_words = @user.adoption_words.order(created_at: :desc).limit(5)
+    @test = Test.new
+    @tests = Test.where(user_id: current_user.id)
+  end
   def word_params
     params.require(:word).permit(:important, :name, :pos_id, :meaning, :genre_id, :text, :publish).merge(user_id: current_user.id)
   end
