@@ -3,12 +3,13 @@ class TestsController < ApplicationController
   def show
     @words = Word.questions(current_user.id)
     @test = Test.create(test_params)
+    @test.update(start_time: @test.created_at)
     @answers = @words.map do |word| 
       Answer.create(
         test_id: @test.id,
         word_id: word.id,
         word_answer: "",
-        score: 0
+        score: 0,
       )
     end
   end
@@ -28,9 +29,18 @@ class TestsController < ApplicationController
     redirect_to user_path(current_user.id)
   end
 
+  def result
+    @test = Test.find(params[:id])
+    @answers = @test.answers
+    @total_score = 0
+    @answers.each do |answer|
+      @total_score += answer[:score]
+    end
+  end
+
   private
   def test_params
-    params.require(:test).permit(:type_id).merge(user_id: current_user.id)
+    params.require(:test).permit(:type_id,:start_time).merge(user_id: current_user.id)
   end
 
 end

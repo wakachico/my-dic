@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_30_075145) do
+ActiveRecord::Schema.define(version: 2021_08_02_082620) do
 
   create_table "adoptions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "word_id", null: false
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 2021_07_30_075145) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "start_time"
     t.index ["user_id"], name: "index_tests_on_user_id"
   end
 

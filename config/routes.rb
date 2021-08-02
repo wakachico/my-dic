@@ -5,6 +5,9 @@ Rails.application.routes.draw do
 
   resources :tests, only: [:show, :update] do
     resources :answers, only: :create
+    member do
+      get 'result'
+    end
   end
   
   resources :words, only: [ :index, :create, :destroy, :edit, :update ] do

@@ -197,6 +197,7 @@
             <% if @words.count >= 5 %>
               <%= form_with(model: @test, url: test_path, local: true, method: :get, class: "test-link") do |form| %>
                 <%= form.collection_select(:type_id, Type.all, :id, :name, {}, {class:"test-type-select-box", id:"test-type"}) %>
+                <%= form.hidden_field :start_at, :value => nil %>
                 <%= form.submit "テストを受ける", class: "test-btn" %>
               <% end %>
             <% else %>
@@ -205,62 +206,16 @@
           </div>
           <div class="test-result">
             <div class="sub-title"> - テスト結果 -</div>
-            <table class="calendar">
-              <tr>
-                <th class="red">日</th>
-                <th>月</th>
-                <th>火</th>
-                <th>水</th>
-                <th>木</th>
-                <th>金</th>
-                <th class="blue">土</th>
-              </tr>
-              <tr>
-                <td class="red"></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td class="blue"></th>
-              </tr>
-              <tr>
-                <td class="red"></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td class="blue"></th>
-              </tr>
-              <tr>
-                <td class="red"></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td class="blue"></th>
-              </tr>
-              <tr>
-                <td class="red"></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td class="blue"></th>
-              </tr>
-              <tr>
-                <td class="red"></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td class="blue"></th>
-              </tr>
-            </table>
+            <%= month_calendar events: @tests do |date,tests|  %>
+              <div class="calendar-day">
+                <%= date.day %>
+              </div>
+              <div>
+                <% tests.each do |test| %>
+                  <%= link_to "●",result_test_path(test.id), method: :get %>
+                <% end %>
+              </div>
+            <% end %>
           </div>
         </div>
       <% end %>

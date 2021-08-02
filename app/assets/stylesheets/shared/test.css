@@ -22,12 +22,12 @@
   width: 500px;
 }
 
-.test-heading{
+.page-heading{
   display: flex;
 }
 
 .total-score{
-  margin-right: 30px;
+  margin-left: 30px;
   display: flex;
 }
 
@@ -47,4 +47,8 @@
 
 .test-footer{
   display: flex;
+}
+
+.comment{
+  margin-left: 20px;
 }
