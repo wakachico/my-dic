@@ -3,7 +3,6 @@ class TestsController < ApplicationController
   def show
     @words = Word.questions(current_user.id)
     @test = Test.create(test_params)
-    binding.pry
     @test.update(start_time: @test.created_at)
     @answers = @words.map do |word| 
       Answer.create(
@@ -19,8 +18,8 @@ class TestsController < ApplicationController
     @test = Test.find(params[:id])
     i = 1
     params[:answers].each do |answer| 
-      # update_answer_id = (@test.id - 1 ) * 5 + i
-      update_answer_id = ( ( ( @test.id - 5 ) / 10 ) * 5 - 1 + i ) * 10 + 5
+      update_answer_id = (@test.id - 1 ) * 5 + i
+      # update_answer_id = ( ( ( @test.id - 5 ) / 10 ) * 5 - 1 + i ) * 10 + 5
       update_answer = Answer.find(update_answer_id)
       update_answer.update(score: answer[:score])
       i += 1
@@ -28,6 +27,15 @@ class TestsController < ApplicationController
     @user = current_user
     @words = @user.words.order("created_at DESC")
     redirect_to user_path(current_user.id)
+  end
+
+  def result
+    @test = Test.find(params[:id])
+    @answers = @test.answers
+    @total_score = 0
+    @answers.each do |answer|
+      @total_score += answer[:score]
+    end
   end
 
   private

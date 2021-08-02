@@ -39,13 +39,13 @@
         </div>
       <% end %>
       <div class="test-footer">
+        <%= f.submit "採点完了" ,class:"add-btn" %>
         <div class="total-score">
           合計点：
           <div>
             <span id="total-score"><%= @total_score %></span>点
           </div>
         </div>
-        <%= f.submit "採点完了" ,class:"add-btn" %>
       </div>
     <% end %>
   </div>
@@ -87,13 +87,13 @@
         </div>
       <% end %>
       <div class="test-footer">
+        <%= f.submit "採点完了" ,class:"add-btn" %>
         <div class="total-score">
           合計点：
           <div>
             <span id="total-score"><%= @total_score %></span>点
           </div>
         </div>
-        <%= f.submit "採点完了" ,class:"add-btn" %>
       </div>
     <% end %>
   </div>
@@ -104,8 +104,8 @@
     e.preventDefault();
     var total_score = Number( 0 ) ;
     for (var i = 1; i <= 5; i++) {
-      // var update_answer_id = (<%= @test.id %> - 1 ) * 5 + i;
-      var update_answer_id =  ( ( (<%= @test.id %> - 5 ) / 10 ) * 5 - 1 + i ) * 10 + 5;
+      var update_answer_id = (<%= @test.id %> - 1 ) * 5 + i;
+      // var update_answer_id =  ( ( (<%= @test.id %> - 5 ) / 10 ) * 5 - 1 + i ) * 10 + 5;
       var answer_score = $("#score" + update_answer_id).val();
       total_score += parseInt(answer_score);
     };

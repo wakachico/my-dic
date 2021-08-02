@@ -1,4 +1,4 @@
-テスト画面(testController/showAction)
+テスト画面
 <% if @test.type_id == 1 %>
   <div class="test-word">
     <%= form_with(model: @test, url: test_answers_path(@test.id), local: true, method: :post, class: "test-link") do |f| %>

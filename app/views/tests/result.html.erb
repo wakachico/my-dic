@@ -1,0 +1,99 @@
+<div class="page-heading">
+  テスト結果の確認
+  <div class="total-score">
+    合計点：
+    <span id="total-score"><%= @total_score %></span>点
+    <div class="comment">
+      <% if @total_score == 5 %>
+        最高だったね！！
+      <% elsif @total_score == 4 %>
+        惜しかった！！
+      <% elsif @total_score == 3 %>
+        もう少し頑張ろう！
+      <% elsif @total_score == 2 %>
+        よく復習しよう！
+      <% elsif @total_score == 1 %>
+        出直してきたまえ！！
+      <% elsif @total_score == 0 %>
+        ちゃんと勉強した！？
+      <% end %>
+    </div>
+  </div>
+</div>
+<% if @test.type_id == 1 %>
+  <div class="test-word">
+    <% i=0 %>
+    <% @answers.each do |answer| %>
+      <div class="question-heading">
+        <p class="question-num"> - <%= i + 1 %>問目 - </p>
+        <div class="question-score">
+          配点：
+          <%= answer.score %>
+          点
+        </div>
+      </div>
+      <div class="question">
+        <div class="question-text">
+          和訳：
+          <div>
+            <%= answer.word.meaning %>
+          </div>
+        </div>
+        <div class="question-answer">
+          <div class="heading">
+            回答：
+          </div>
+          <%= answer.word_answer %>
+        </div>
+        <div class="correct-answer">
+          <div class="heading">
+            答え：
+          </div>
+          <%= answer.word.name %>
+        </div>
+        <% i += 1 %>
+      </div>
+    <% end %>
+    <div class="test-footer">
+      <%= link_to "Mydicページへ戻る", user_path(current_user.id) %>
+    </div>
+  </div>
+<% else %>
+<div class="test-word">
+    <% i=0 %>
+    <% @answers.each do |answer| %>
+      <div class="question-heading">
+        <p class="question-num"> - <%= i + 1 %>問目 - </p>
+        <div class="question-score">
+          配点：
+          <%= answer.score %>
+          点
+        </div>
+      </div>
+      <div class="question">
+        <div class="question-text">
+          英語：
+          <div>
+            <%= answer.word.name %>
+          </div>
+        </div>
+        <div class="question-answer">
+          <div class="heading">
+            回答：
+          </div>
+          <%= answer.word_answer %>
+        </div>
+        <div class="correct-answer">
+          <div class="heading">
+            答え：
+          </div>
+          <%= answer.word.meaning %>
+        </div>
+        <% i += 1 %>
+      </div>
+    <% end %>
+    <div class="test-footer">
+      <%= link_to "Mydicページへ戻る", user_path(current_user.id) %>
+    </div>
+  </div>
+<% end %>

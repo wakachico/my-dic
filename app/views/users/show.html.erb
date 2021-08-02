@@ -212,7 +212,7 @@
               </div>
               <div>
                 <% tests.each do |test| %>
-                  <%= link_to "●","#" %>
+                  <%= link_to "●",result_test_path(test.id), method: :get %>
                 <% end %>
               </div>
             <% end %>
