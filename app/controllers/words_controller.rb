@@ -76,6 +76,7 @@ class WordsController < ApplicationController
     @test = Test.new
     @tests = Test.where(user_id: current_user.id)
   end
+  
   def word_params
     params.require(:word).permit(:important, :name, :pos_id, :meaning, :genre_id, :text, :publish).merge(user_id: current_user.id)
   end
