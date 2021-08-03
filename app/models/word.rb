@@ -11,7 +11,7 @@ class Word < ApplicationRecord
   belongs_to :genre
 
   with_options presence: true do
-    validates :name, :pos_id, :meaning, :genre_id
+    validates  :name, :pos_id, :meaning, :genre_id
   end
 
   def self.search_mydic(search,condition,category,id)
