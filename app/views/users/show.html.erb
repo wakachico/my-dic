@@ -167,7 +167,7 @@
           - ワード検索 -
         </div>
         <div class="try-test">
-            <%= link_to "公開ワード検索", root_path, class: "publish-btn"%>
+            <%= link_to "公開ワード検索", words_path, method: :get, class: "publish-btn"%>
         </div>
         <div class="list">〜最近グーしたワード〜
           <% if @good_words.present? %>
@@ -195,7 +195,7 @@
           </div>
           <div class="try-test">
             <% if @words.count >= 5 %>
-              <%= form_with(model: @test, url: test_path, local: true, method: :get, class: "test-link") do |form| %>
+              <%= form_with(model: @test, url: test_path(@user.id), local: true, method: :get, class: "test-link") do |form| %>
                 <%= form.collection_select(:type_id, Type.all, :id, :name, {}, {class:"test-type-select-box", id:"test-type"}) %>
                 <%= form.hidden_field :start_at, :value => nil %>
                 <%= form.submit "テストを受ける", class: "test-btn" %>
