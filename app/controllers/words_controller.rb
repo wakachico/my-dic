@@ -1,5 +1,5 @@
 class WordsController < ApplicationController
-  before_action :authenticate_user!, only: [:index, :new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:index, :create, :destroy, :update, :search_mydic, :search_index, :order_mydic, :order_index]
   before_action :set_data,only: [:search_mydic, :order_mydic]
 
   def index
