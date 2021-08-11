@@ -68,6 +68,6 @@ thead.table_head,tbody.publish_table_scroll{
 }
 
 tbody.publish_table_scroll{
-  height: 500px;
+  height: 550px;
   overflow-y: scroll;
 }
