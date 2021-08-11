@@ -7,7 +7,6 @@
   background-blend-mode: lighten;
   /* background-image: url("/images/header_back.png"); */
   border-bottom: 1px solid rgb(7, 7, 7);
-  padding: 10px 0;
 }
 .logo-top{
   display: flex;
@@ -16,8 +15,8 @@
 
 .logo{
   margin: 2vh 1vw 0 6vw;
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
 }
 
 .logo-top h1{
