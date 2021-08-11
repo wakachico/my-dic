@@ -4,9 +4,12 @@
 }
 
 .side-bar-contents{
-  background-color: white;
+  background-image: url("/images/test6.png");
+  background-color: rgba(255, 255, 255, 0.816);
+  background-blend-mode: lighten;
   border: 1px solid black;
   margin-top: 20px;
+  border-radius: 5px;
 }
 
 .publish-users{
