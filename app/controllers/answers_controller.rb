@@ -5,8 +5,8 @@ class AnswersController < ApplicationController
     @test = Test.find(params[:test_id])
     i = 1
     @answers = params[:answers].map do |answer| 
-      update_answer_id = (@test.id - 1 ) * 5 + i #ローカル環境用
-      # update_answer_id = ( ( ( @test.id - 5 ) / 10 ) * 5 - 1 + i ) * 10 + 5 #本番環境用
+      # update_answer_id = (@test.id - 1 ) * 5 + i #ローカル環境用
+      update_answer_id = ( ( ( @test.id - 5 ) / 10 ) * 5 - 1 + i ) * 10 + 5 #本番環境用
       update_answer = Answer.find(update_answer_id)
       update_answer.update(word_answer: answer[:word_answer])
       scoring(update_answer,answer)
