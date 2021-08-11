@@ -2,8 +2,12 @@
 .top-page-header{
   display: flex;
   flex-direction: column;
-  background-color: white;
-  border-bottom: 1px solid rgb(10, 92, 47);
+  background-image: url("/images/header2.jpeg");
+  background-color: rgba(255, 255, 255, 0.597);
+  background-blend-mode: lighten;
+  /* background-image: url("/images/header_back.png"); */
+  border-bottom: 1px solid rgb(7, 7, 7);
+  padding: 10px 0;
 }
 .logo-top{
   display: flex;
@@ -11,9 +15,9 @@
 }
 
 .logo{
-  margin: 0 1vw 0 3vw;
-  width: 50px;
-  height: 50px;
+  margin: 2vh 1vw 0 6vw;
+  width: 70px;
+  height: 70px;
 }
 
 .logo-top h1{
@@ -41,6 +45,8 @@
   list-style: none;
   align-items: flex-end;
   margin-right: 3vw;
+  margin-bottom: 1vh;
+  font-size: 20px;
 }
 
 .user-nickname {
