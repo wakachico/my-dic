@@ -5,8 +5,7 @@
 .word-index{
   height: 450px;
   border: 1px solid black;
-  background-image: url("/images/test6.png");
-  background-color: rgba(255, 255, 255, 0.816);
+  background-color: rgba(255, 255, 255, 0.9);
   background-blend-mode: lighten;
   margin-top: 20px;
   padding: 15px;

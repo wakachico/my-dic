@@ -1,16 +1,14 @@
 .publish-main{
   height: 100vh;
   padding: 15px;
-  background-image: url("/images/test4.png");
-  border-top: 10px solid snow;
-  /* background-color: rgb(229, 250, 219); */
+  background-image: url("/images/header.jpeg");
+  border-top: 3px solid snow;
 }
 
 .publish-word-index{
   height: 85%;
   border: 1px solid black;
-  background-image: url("/images/test6.png");
-  background-color: rgba(255, 255, 255, 0.816);
+  background-color: rgba(255, 255, 255, 0.95);
   background-blend-mode: lighten;
   margin-top: 30px;
   padding: 15px;
@@ -68,6 +66,6 @@ thead.table_head,tbody.publish_table_scroll{
 }
 
 tbody.publish_table_scroll{
-  height: 550px;
+  height: 500px;
   overflow-y: scroll;
 }

@@ -1,8 +1,7 @@
 .mydic-contents{
   height: 100%;
-  background-image: url("/images/test4.png");
-  /* background-color: rgb(229, 250, 219);  */
-  border-top: 10px solid snow;
+  background-image: url("/images/header.jpeg");
+  border-top: 3px solid snow;
   padding: 15px;
 }
 
@@ -13,12 +12,14 @@
 
 .page-title{
   font-size: 25px;
+  color: snow;
+  background-color: rgba(0,0,0, 0.3);
+  width: 450px;
 }
 
 .new-word{
   border: 1px solid black;
-  background-image: url("/images/test6.png");
-  background-color: rgba(255, 255, 255, 0.816);
+  background-color: rgba(255, 255, 255, 0.9);
   background-blend-mode: lighten;
   padding: 15px;
   border-radius: 5px;
