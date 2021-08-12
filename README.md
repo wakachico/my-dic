@@ -47,53 +47,53 @@ password: 1qasw2
 
 # 機能紹介
   ## ユーザ新規登録機能
-  [![Image from Gyazo](https://i.gyazo.com/8a81ec43fe817f266d12e3eac7d4e8ee.gif)](https://gyazo.com/8a81ec43fe817f266d12e3eac7d4e8ee)
+  [![Image from Gyazo](https://i.gyazo.com/67d2eed31c5f66c755a93fec3700bf85.gif)](https://gyazo.com/67d2eed31c5f66c755a93fec3700bf85)
   新規登録画面にて「ニックネーム」「メールアドレス」「パスワード」を入力しアカウントを作成します。
   ## ログイン機能
-  [![Image from Gyazo](https://i.gyazo.com/1f3266259cfeaef450e42ed2086ac005.gif)](https://gyazo.com/1f3266259cfeaef450e42ed2086ac005)
+  [![Image from Gyazo](https://i.gyazo.com/465adb37d2fc57c5f52e7773457f28e3.gif)](https://gyazo.com/465adb37d2fc57c5f52e7773457f28e3)
   既に登録済みのユーザはログイン画面にて「メールアドレス」「パスワード」入力しログインします。
   ## Mydicページ
-  [![Image from Gyazo](https://i.gyazo.com/028074648b6e6a58a05e555594c54b20.gif)](https://gyazo.com/028074648b6e6a58a05e555594c54b20)
+  [![Image from Gyazo](https://i.gyazo.com/ea4c6c23350b3fb5725ccbd5f86536df.gif)](https://gyazo.com/ea4c6c23350b3fb5725ccbd5f86536df)
   ログイン後、ヘッダーにある「ログイン中のユーザー」をクリックしMydicページ（マイページ）へ遷移できます。
   ## ワード追加機能
-  [![Image from Gyazo](https://i.gyazo.com/62125c4e5fb976d503305a45860fd03d.gif)](https://gyazo.com/62125c4e5fb976d503305a45860fd03d)
+  [![Image from Gyazo](https://i.gyazo.com/a4bb85b573064aba8ec9309cf7b8c62e.gif)](https://gyazo.com/a4bb85b573064aba8ec9309cf7b8c62e)
   「My dicに英単語追加」直下の入力フォームに必要項目を記入し「追加」ボタンをクリックしてワードを追加できます。  
   ※鍵マーク欄をチェックして追加したワードは公開ワードとして他ユーザに公開されます。
   ## Weblio引用機能
-  [![Image from Gyazo](https://i.gyazo.com/ca9a98b5d475b58339e7aa67aee45e72.gif)](https://gyazo.com/ca9a98b5d475b58339e7aa67aee45e72)
+  [![Image from Gyazo](https://i.gyazo.com/6685e7c032ba0c63404a7883a29c7a57.gif)](https://gyazo.com/6685e7c032ba0c63404a7883a29c7a57)
   ワード追加時に登録したい英単語を入力後、「Weblio引用」ボタンを押下することで、Weblioに登録されている和訳を入力フォームに引っ張ってこれます。
   ## ワード編集機能
-  [![Image from Gyazo](https://i.gyazo.com/ff553e0087a91386313e2ddb27cf944f.gif)](https://gyazo.com/ff553e0087a91386313e2ddb27cf944f)
+  [![Image from Gyazo](https://i.gyazo.com/176e9e8ba8ae9bda705205f816493941.gif)](https://gyazo.com/176e9e8ba8ae9bda705205f816493941)
   登録した一覧情報の上でクリックすると入力フォームが出ます。その中で編集したい情報に変更してEnterを押すことで簡単にワード情報を変更する事ができます。
   ## ワード削除機能
-  [![Image from Gyazo](https://i.gyazo.com/caf5d880495150d98117a4388b1eebf9.gif)](https://gyazo.com/caf5d880495150d98117a4388b1eebf9)
+  [![Image from Gyazo](https://i.gyazo.com/6713162ec89673d63f0e0981efc2db33.gif)](https://gyazo.com/6713162ec89673d63f0e0981efc2db33)
   ワード情報の右端にあるゴミ箱ボタンをクリックで簡単にワード情報を削除する事ができます。
   ## 公開ワード一覧機能
-  [![Image from Gyazo](https://i.gyazo.com/cc7c901d4661d560ff1b52f33fddbb18.gif)](https://gyazo.com/cc7c901d4661d560ff1b52f33fddbb18)
+  [![Image from Gyazo](https://i.gyazo.com/7cb8cd55581aab003a28174485f18acb.gif)](https://gyazo.com/7cb8cd55581aab003a28174485f18acb)
   Mydicページ内の「公開ワード検索」ボタンを押す事で全ユーザーの公開ワード一覧表示ページへ遷移できます。  
   ※このページはルートパスです。
   ## グー（good）機能
-  [![Image from Gyazo](https://i.gyazo.com/b624751d7970bbb861ebbdeb8a8737f3.gif)](https://gyazo.com/b624751d7970bbb861ebbdeb8a8737f3)
+  [![Image from Gyazo](https://i.gyazo.com/8e53d303407d2b38dd1d6def6dd26368.gif)](https://gyazo.com/8e53d303407d2b38dd1d6def6dd26368)
   他ユーザーの公開ワードに対して気に入った登録方法があれば「グー（good）」する事ができます。１人１ワードに対して１グーができ、グーされたワードにはいくつグーされたのかが表示されます。
   ## ワード採用機能
-  [![Image from Gyazo](https://i.gyazo.com/42f8dceb0a7dd17e727e2bdf6d79dc74.gif)](https://gyazo.com/42f8dceb0a7dd17e727e2bdf6d79dc74)
+  [![Image from Gyazo](https://i.gyazo.com/f0c78a3f61eacf89580c6efb33a0fade.gif)](https://gyazo.com/f0c78a3f61eacf89580c6efb33a0fade)
   他ユーザーの公開ワードで特に気に入ったワード情報を「採用！」ボタンを押すことでログインユーザーのMydicに追加することができます。
-  [![Image from Gyazo](https://i.gyazo.com/687f519f23f7d2bf43e752fa8e9bf3db.gif)](https://gyazo.com/687f519f23f7d2bf43e752fa8e9bf3db)
+  [![Image from Gyazo](https://i.gyazo.com/7355a604bb7bf19a465897e3b4cc9e6d.gif)](https://gyazo.com/7355a604bb7bf19a465897e3b4cc9e6d)
   採用されたワードには採用数が加算され表示されています。アプリユーザー内で人気のワードの一つの指標として使用できます。
   ## ワード検索機能
-  [![Image from Gyazo](https://i.gyazo.com/697a355bc00859c4797f4d9d2f828e74.gif)](https://gyazo.com/697a355bc00859c4797f4d9d2f828e74)
+  [![Image from Gyazo](https://i.gyazo.com/6c2799e77d7e3c0838d5294c50fa4610.gif)](https://gyazo.com/6c2799e77d7e3c0838d5294c50fa4610)
   ワード検索フォームに検索したいワードを入力し、条件、範囲を選択した後、「検索」ボタンをクリックすると選択した条件にヒットしたワード情報のみ表示することができます。自分が登録したい英単語が既にある場合は、簡単にその単語に対しての他ユーザーが公開したワードを確認する事ができます。
   ## ワード並び替え機能
-  [![Image from Gyazo](https://i.gyazo.com/e369e0421fb3a237a971d06c6329082f.gif)](https://gyazo.com/e369e0421fb3a237a971d06c6329082f)
+  [![Image from Gyazo](https://i.gyazo.com/c67fa6207817466b94e73cc9a542a6d0.gif)](https://gyazo.com/c67fa6207817466b94e73cc9a542a6d0)
   並び替え条件を選択後、「並び替え」ボタンを押すことで一覧表示を並び替える事ができます。グー数や採用数の多い順で並び替えると人気のワードランキングが確認できます。
   ## テスト機能
-  [![Image from Gyazo](https://i.gyazo.com/88c114d578930d180e410ba80876bce0.gif)](https://gyazo.com/88c114d578930d180e410ba80876bce0)
+  [![Image from Gyazo](https://i.gyazo.com/706f3e9089547cf6accfa4a65ba6a16c.gif)](https://gyazo.com/706f3e9089547cf6accfa4a65ba6a16c)
   Mydicページにて英単語を答える「単語テスト」、和訳を答える「和訳テスト」を選択した後、「テストを受ける」ボタンを押したらテスト画面に遷移します。登録しているワードの中からランダムで５件選出して出題されます。英単語を覚えた！と思ったら自分の実力を確かめることができます。
   ## テスト採点機能
   [![Image from Gyazo](https://i.gyazo.com/028da5e2c0551710bc5605b755ae2248.gif)](https://gyazo.com/028da5e2c0551710bc5605b755ae2248)
   テストに答えた時自動で採点してくれます。採点は登録した情報と回答が同じかで判別するため類義語に対してはうまく採点されないことがあります。その場合は自分で採点結果を変更して登録ができます。５点満点目指して学習を進められます。
   ## テスト結果確認機能
-  [![Image from Gyazo](https://i.gyazo.com/90c7479ab009142c1785730635089c10.gif)](https://gyazo.com/90c7479ab009142c1785730635089c10)
+  [![Image from Gyazo](https://i.gyazo.com/4c10f5f83c80050193068ed5251db66a.gif)](https://gyazo.com/4c10f5f83c80050193068ed5251db66a)
   テストを受けた後、Mydicページのサイドバーにあるカレンダーに「●」が追加され、クリックすることでテスト結果画面に遷移しテスト内容を確認する事ができます。また、自分がどの頻度でテストを実施したかがカレンダーにより視覚的に確認する事ができます。
 
 # 実装予定の機能又は課題解決
@@ -120,7 +120,7 @@ password: 1qasw2
 上記の②〜⑤の手順を無駄に繰り返さないコードに変更できないかを検討（Gem等がないかも含み探す）
 
 ## 並び替えは全数に対して並び替えてしまう問題
-[![Image from Gyazo](https://i.gyazo.com/d229e53e8d2c3c47a9d96d3101eed38f.gif)](https://gyazo.com/d229e53e8d2c3c47a9d96d3101eed38f)
+[![Image from Gyazo](https://i.gyazo.com/51bcdc84170ac724e251eba0a67dc983.gif)](https://gyazo.com/51bcdc84170ac724e251eba0a67dc983)
 ＜課題＞  
 ワード一覧情報を検索機能を使用し件数を絞った後に、その絞った件数に対して並び替え機能を使用したいが全件に対して並び替え処理を実行してしまう。  
 
@@ -146,7 +146,7 @@ wordの登録数が少ない内は気にならないが、数が増えると検�
 idではなくeachやmapでうまく指定できないか検討する。  
 
 ## 採用機能が一度に１ワード情報しかできない問題
-[![Image from Gyazo](https://i.gyazo.com/42f8dceb0a7dd17e727e2bdf6d79dc74.gif)](https://gyazo.com/42f8dceb0a7dd17e727e2bdf6d79dc74)
+[![Image from Gyazo](https://i.gyazo.com/f0c78a3f61eacf89580c6efb33a0fade.gif)](https://gyazo.com/f0c78a3f61eacf89580c6efb33a0fade)
 ＜課題＞  
 採用機能を利用する際、「採用！」ボタンを押すとそのワードだけ登録されてMydicページへ遷移してしまう。  
 
