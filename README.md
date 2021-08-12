@@ -61,6 +61,7 @@ password: 1qasw2
   ※鍵マーク欄をチェックして追加したワードは公開ワードとして他ユーザに公開されます。
   ## Weblio引用機能
   [![Image from Gyazo](https://i.gyazo.com/6685e7c032ba0c63404a7883a29c7a57.gif)](https://gyazo.com/6685e7c032ba0c63404a7883a29c7a57)
+  [![Image from Gyazo](https://i.gyazo.com/e749773233f0850d3f569952510458ea.png)](https://gyazo.com/e749773233f0850d3f569952510458ea)
   ワード追加時に登録したい英単語を入力後、「Weblio引用」ボタンを押下することで、Weblioに登録されている和訳を入力フォームに引っ張ってこれます。
   ## ワード編集機能
   [![Image from Gyazo](https://i.gyazo.com/176e9e8ba8ae9bda705205f816493941.gif)](https://gyazo.com/176e9e8ba8ae9bda705205f816493941)
