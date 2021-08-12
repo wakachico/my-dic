@@ -1,5 +1,5 @@
 .back-page{
-  background-color: rgb(229, 250, 219);
+  background-image: url("/images/test4.png");
   height: 100vh;
   width: 100%;
   padding: 60px;
@@ -8,7 +8,9 @@
   width: 80%;
   height: 90%;
   padding: 60px;
-  background-color: rgb(255, 255, 255);
+  background-image: url("/images/test6.png");
+  background-color: rgba(255, 255, 255, 0.816);
+  background-blend-mode: lighten;
   border: 1px solid #ddd;
   border-radius: 5px;
 }
